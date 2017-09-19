@@ -13,7 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Empresario_form"/>
         <activity android:name=".Jogador_Form"/>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".FirebaseCreate">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
