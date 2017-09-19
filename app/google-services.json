@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1085238182409",
+    "firebase_url": "https://accorgol-5000e.firebaseio.com",
+    "project_id": "accorgol-5000e",
+    "storage_bucket": "accorgol-5000e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085238182409:android:6fdffee0fd341ea2",
+        "android_client_info": {
+          "package_name": "io.rerum.accorgol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1085238182409-5teq947jakeh1dogvvvdr0ds3dretrni.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.rerum.accorgol",
+            "certificate_hash": "d4a591dc16db4af243017bd482d4fdf5b14426df"
+          }
+        },
+        {
+          "client_id": "1085238182409-cv08ta91o7nkf0mi5n0gdqed2779t9jn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_jYPib4oIbQi8MyOETWntIkkqvxlZ9_g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1085238182409-cv08ta91o7nkf0mi5n0gdqed2779t9jn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
