@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#2b4f7c"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="Cidade"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="301dp"
+        app:layout_constraintRight_toLeftOf="@+id/editText"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estado"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        tools:layout_editor_absoluteY="368dp"
+        app:layout_constraintRight_toLeftOf="@+id/spinner6"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.054" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:text="Altura mínima"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="240dp"
+        app:layout_constraintRight_toLeftOf="@+id/spinner"
+        android:layout_marginRight="8dp"
+        app:layout_constraintHorizontal_bias="0.119" />
+
+    <Spinner
+        android:entries="@array/estadosBR"
+        android:id="@+id/spinner6"
+        android:layout_width="128dp"
+        android:layout_height="30dp"
+        android:background="@drawable/border2"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="368dp" />
+
+    <Spinner
+        android:entries="@array/posicao"
+        android:id="@+id/spinner4"
+        android:layout_width="128dp"
+        android:layout_height="31dp"
+        android:background="@drawable/border2"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="175dp" />
+
+    <Button
+        android:background="@color/JogadorColor"
+        android:textColor="#000080"
+        android:id="@+id/button4"
+        android:layout_width="344dp"
+        android:layout_height="54dp"
+        android:text="Buscar"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="427dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="128dp"
+        android:layout_height="31dp"
+        android:background="@drawable/border2"
+        android:entries="@array/altura"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="240dp" />
+
+    <Spinner
+        android:entries="@array/pe"
+        android:id="@+id/spinner2"
+        android:layout_width="128dp"
+        android:layout_height="31dp"
+        android:background="@drawable/border2"
+        tools:layout_editor_absoluteY="112dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posição"
+        tools:layout_editor_absoluteY="175dp"
+        android:textSize="25sp"
+        android:textColor="#fff"
+        app:layout_constraintRight_toLeftOf="@+id/spinner4"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintHorizontal_bias="0.059" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Pé Domiante"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/spinner2"
+        tools:layout_editor_absoluteY="112dp" />
+
+    <EditText
+        android:background="#fff"
+        android:id="@+id/editText"
+        android:layout_width="130dp"
+        android:layout_height="31dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Cidade"
+        tools:layout_editor_absoluteX="238dp"
+        tools:layout_editor_absoluteY="301dp" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="257dp"
+        android:layout_height="70dp"
+        android:text="Escolha os filtros para busca de jogadores"
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:textColor="#fff"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+</android.support.constraint.ConstraintLayout>

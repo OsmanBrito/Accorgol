@@ -29,4 +29,29 @@
         <item>TO</item>
     </string-array>
 
+    <string-array name="posicao">
+        <item>Goleiro</item>
+        <item>Atacante</item>
+        <item>Meio Campo</item>
+        <item>Lateral</item>
+        <item>Zagueiro</item>
+        <item>Volante</item>
+        <item>Ala</item>
+    </string-array>
+
+    <string-array name="pe">
+        <item>Direito</item>
+        <item>Esquerdo</item>
+    </string-array>
+
+    <string-array name="altura">
+        <item>1,50</item>
+        <item>1,60</item>
+        <item>1,70</item>
+        <item>1,75</item>
+        <item>1,80</item>
+        <item>1,85</item>
+        <item>1,90</item>
+    </string-array>
+
 </resources>

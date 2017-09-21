@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2b4f7c">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bem-Vindo Fulano!"
+        tools:layout_editor_absoluteY="69dp"
+        android:textSize="40sp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintHorizontal_bias="0.52" />
+
+    <Button
+        android:background="#2e8a57"
+        android:textColor="#000080"
+        android:id="@+id/button2"
+        android:layout_width="187dp"
+        android:layout_height="352dp"
+        android:text="Oportunidades"
+        tools:layout_editor_absoluteY="152dp"
+        android:layout_marginRight="4dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:textColor="#000080"
+        android:background="@color/JogadorColor"
+        android:id="@+id/button3"
+        android:layout_width="191dp"
+        android:layout_height="351dp"
+        android:text="Buscar Talentos"
+        tools:layout_editor_absoluteX="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp" />
+
+    <QuickContactBadge
+        android:id="@+id/quickContactBadge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/border2"
+        tools:layout_editor_absoluteX="336dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Oportunidade"
+        tools:layout_editor_absoluteX="141dp"
+        tools:layout_editor_absoluteY="-114dp" />
+
+    <RelativeLayout
+        android:layout_width="396dp"
+        android:layout_height="366dp"
+        android:background="#fff"
+        tools:layout_editor_absoluteX="-6dp"
+        tools:layout_editor_absoluteY="45dp">
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView32"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="18dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView32"
+            android:layout_below="@+id/textView34"
+            android:layout_marginTop="25dp"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="13dp"
+            android:textSize="25sp"
+            android:text="Oportunidade" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView32"
+            android:layout_alignBottom="@+id/textView32"
+            android:layout_alignStart="@+id/textView35"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/textView33"
+            android:layout_alignBottom="@+id/textView33"
+            android:layout_marginStart="37dp"
+            android:layout_toEndOf="@+id/textView34"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView31"
+            android:layout_below="@+id/textView33"
+            android:layout_marginTop="18dp"
+            android:text="TextView" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="351dp"
+        android:layout_height="63dp"
+        android:layout_alignEnd="@+id/textView36"
+        android:layout_alignStart="@+id/textView31"
+        android:layout_below="@+id/textView31"
+        android:text="Avisar Empresario"
+        android:textStyle="bold"
+        android:background="@color/EmpresarioColor"
+        android:textColor="#fdfd01"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="274dp" />
+</android.support.constraint.ConstraintLayout>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,6 +14,7 @@
             android:weightSum="1">
 
             <TextView
+                android:textColor="#fff"
                 android:layout_margin="10dp"
                 android:textSize="30dp"
                 android:textAlignment="center"
@@ -25,9 +27,13 @@
                 android:hint="Digite aqui o seu Nome completo"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
+                android:textColorHint="#fff"
+                android:textColor="#fff"
                 android:layout_height="wrap_content" />
 
             <EditText
+                android:textColorHint="#fff"
+                android:textColor="#fff"
                 android:text="email@email.com"
                 android:layout_margin="10dp"
                 android:id="@+id/JogadorEmail"
@@ -38,6 +44,8 @@
                 android:inputType="textEmailAddress" />
 
             <EditText
+                android:textColorHint="#fff"
+                android:textColor="#fff"
                 android:text="1996"
                 android:layout_margin="10dp"
                 android:id="@+id/JogadorYear"
@@ -48,6 +56,8 @@
                 android:inputType="number" />
 
             <EditText
+                android:textColorHint="#fff"
+                android:textColor="#fff"
                 android:text="371115552"
                 android:layout_margin="10dp"
                 android:id="@+id/RG"

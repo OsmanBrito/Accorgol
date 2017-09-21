@@ -4,5 +4,6 @@
     <color name="colorPrimaryDark">#006c27</color>
     <color name="colorAccent">#FF4081</color>
     <color name="JogadorColor">#fdfd01</color>
+    <color name="JogadorColorPefil">#ffff5c</color>
     <color name="EmpresarioColor">#1f487c</color>
 </resources>
