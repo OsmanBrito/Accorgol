@@ -11,10 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Empresario_form"/>
-        <activity android:name=".Jogador_Form"/>
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".FirebaseCreate">
+        <activity android:name=".view.empresario.Empresario_form"/>
+        <activity android:name=".view.jogador.Jogador_Form"/>
+        <activity android:name=".view.MainActivity"/>
+        <activity android:name=".view.empresario.Empresario_Perfil"/>
+        <activity android:name=".view.empresario.Empresario_form_segunda_etapa"/> <activity android:name=".view.empresario.EmpresarioAlterarPerfil"/>
+        <activity android:name=".view.empresario.EmpresarioHome"/>
+        <activity android:name=".view.FirebaseCreate">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary">
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -24,9 +25,9 @@
                 android:textColor="#fff"
                 android:text="Cadastro de Empresário"/>
             <EditText
-                android:text="Fulano de tal"
-                android:id="@+id/EmpresarioNomeCompleto"
-                android:hint="Digite aqui o seu Nome completo"
+                android:id="@+id/EmpresarioEndereco"
+                android:text="rua teste1"
+                android:hint="Endereço. (Rua jose nº 332 apto 32)"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:textColorHint="#fff"
@@ -34,65 +35,78 @@
                 android:layout_height="wrap_content" />
 
             <EditText
-                android:text="44455588879"
+                android:text="bairo222"
                 android:layout_margin="10dp"
-                android:id="@+id/cpf"
+                android:id="@+id/EmpresarioBairro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="11"
-                android:hint="Digite aqui o seu CPF"
+                android:hint="Digite aqui o seu Bairro."
+                android:textColorHint="#fff"
+                android:textColor="#fff" />
+
+            <EditText
+                android:text="cidade11"
+                android:layout_margin="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/EmpresarioCidade"
+                android:hint="Digite aqui a Cidade. "
+                android:textColor="#fff"
+                android:textColorHint="#fff"/>
+
+            <EditText
+                android:text="122123"
+                android:layout_margin="10dp"
+                android:id="@+id/EmpresarioCEP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Digite o seu CEP"
                 android:textColorHint="#fff"
                 android:textColor="#fff"
                 android:inputType="numberDecimal" />
 
             <EditText
-                android:text="30/10/1992"
+                android:text="Empresarios"
                 android:layout_margin="10sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/dataNascimentoEmpresario"
-                android:hint="Digite de nascimento. (Ex: 10/10/1995) "
+                android:id="@+id/EmpresarioEmpresa"
+                android:hint="Nome da Empresa (Se tiver uma)."
                 android:textColor="#fff"
-                android:textColorHint="#fff"
-                android:inputType="date"/>
+                android:textColorHint="#fff"/>
 
             <EditText
-                android:text="55888855554"
-                android:layout_margin="10dp"
-                android:id="@+id/EmpresarioPhone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Digite o seu numero de Celular"
-                android:textColorHint="#fff"
-                android:textColor="#fff"
-                android:inputType="phone" />
-
-            <TextView
-                android:layout_gravity="center"
+                android:text="121212"
                 android:layout_margin="10sp"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textColor="#fff"
-                android:text="Seleciona o estado"/>
-
-            <Spinner
-                android:id="@+id/EmpresarioEstado"
-                android:entries="@array/estadosBR"
-                android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.06" />
+                android:id="@+id/EmpresarioRegistro"
+                android:hint="Numero de registro da FIFA. "
+                android:inputType="numberDecimal"
+                android:textColor="#fff"
+                android:textColorHint="#fff"/>
 
             <Button
-                android:onClick="empresarioCadastradoPrimeiraEtapa"
+                android:onClick="PularSegundaEtapaCadastro"
+                android:layout_margin="10sp"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/EmpresarioColor"
+                android:textStyle="bold"
+                android:text="Preencher este formulario depois" />
+
+            <Button
+                android:onClick="ConcluirCadastro"
                 android:textColor="#fdfd01"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/EmpresarioColor"
-                android:text="CONTINUAR"/>
+                android:text="concluir"/>
 
 
         </LinearLayout>

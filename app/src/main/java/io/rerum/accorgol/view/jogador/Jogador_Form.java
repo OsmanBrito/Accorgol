@@ -1,4 +1,4 @@
-package io.rerum.accorgol;
+package io.rerum.accorgol.view.jogador;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +14,8 @@ import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
 import java.util.Map;
+
+import io.rerum.accorgol.R;
 
 /**
  * Created by osman on 13/08/2017.

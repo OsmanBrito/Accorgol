@@ -25,6 +25,7 @@
         android:textStyle="bold"
         android:textColor="#fff"/>
     <EditText
+        android:text="osman_lol@hotmail.com"
         android:id="@+id/createUserEmail"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
@@ -45,6 +46,7 @@
         android:textStyle="bold"
         android:textColor="#fff"/>
     <EditText
+        android:text="123456"
         android:id="@+id/createUserSenha"
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"

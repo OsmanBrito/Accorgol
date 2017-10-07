@@ -14,8 +14,8 @@
         android:textStyle="bold"
         android:textSize="40sp"
         android:textColor="#fff"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="46dp" />
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="47dp" />
 
     <RelativeLayout
         android:layout_width="337dp"
