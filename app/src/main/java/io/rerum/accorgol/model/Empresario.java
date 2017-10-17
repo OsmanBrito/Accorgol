@@ -13,16 +13,13 @@ public class Empresario implements Serializable{
     private String nomeCompleto;
     private String email;
     private String cpf;
-    private Date dataDeNascimento;
-
-    private String data;
-
+    private String dataDeNascimento;
     private String endereco;
     private String bairro;
     private String cidade;
     private String estado;
-    private Long cep;
-    private Long celular;
+    private String cep;
+    private String celular;
     private String senha;
     private String empresa;
     private boolean agenteFifa;
@@ -30,12 +27,12 @@ public class Empresario implements Serializable{
     private Oportunidade oportunidade[];
 
     //Campos que serão salvos com as duas etapas de cadastro efetuadas com sucesso.
-    public Empresario(String nomeCompleto, String email, String cpf, String dataNascimento, String endereco, String bairro, String cidade, String estado, Long cep, Long celular, String senha) {
+    public Empresario(String nomeCompleto, String email, String cpf, String dataNascimento, String endereco, String bairro, String cidade, String estado, String cep, String celular, String senha) {
 
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.cpf = cpf;
-        this.data = dataNascimento;
+        this.dataDeNascimento = dataNascimento;
         this.endereco = endereco;
         this.bairro = bairro;
         this.cidade = cidade;
@@ -46,11 +43,11 @@ public class Empresario implements Serializable{
 
     }
 
-    public Empresario(String nomeCompleto, String email, String cpf, String dataDeNascimento, String endereco, String bairro, String cidade, String estado, Long cep, Long celular, String senha, String empresa, String numeroRegistro) {
+    public Empresario(String nomeCompleto, String email, String cpf, String dataDeNascimento, String endereco, String bairro, String cidade, String estado, String cep, String celular, String senha, String empresa, String numeroRegistro) {
         this.nomeCompleto = nomeCompleto;
         this.email = email;
         this.cpf = cpf;
-        this.data = dataDeNascimento;
+        this.dataDeNascimento = dataDeNascimento;
         this.endereco = endereco;
         this.bairro = bairro;
         this.cidade = cidade;
@@ -68,12 +65,12 @@ public class Empresario implements Serializable{
     }
 
     //cadastrar novo empresario no banco
-    public Empresario(String nome, String email, String cpf, String dataNascimento, String endereco, String bairro, String cidade, String estado, Long cep, Long celular, String empresa, String registro) {
+    public Empresario(String nome, String email, String cpf, String dataNascimento, String endereco, String bairro, String cidade, String estado, String cep, String celular, String empresa, String registro) {
 
         this.nomeCompleto = nome;
         this.email = email;
         this.cpf = cpf;
-        this.data = dataNascimento;
+        this.dataDeNascimento = dataNascimento;
         this.endereco = endereco;
         this.bairro = bairro;
         this.cidade = cidade;
@@ -118,11 +115,11 @@ public class Empresario implements Serializable{
         this.cpf = cpf;
     }
 
-    public Date getDataDeNascimento() {
+    public String getDataDeNascimento() {
         return dataDeNascimento;
     }
 
-    public void setDataDeNascimento(Date dataDeNascimento) {
+    public void setDataDeNascimento(String dataDeNascimento) {
         this.dataDeNascimento = dataDeNascimento;
     }
 
@@ -158,19 +155,19 @@ public class Empresario implements Serializable{
         this.estado = estado;
     }
 
-    public Long getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Long cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
 
-    public Long getCelular() {
+    public String getCelular() {
         return celular;
     }
 
-    public void setCelular(Long celular) {
+    public void setCelular(String celular) {
         this.celular = celular;
     }
 
@@ -212,14 +209,6 @@ public class Empresario implements Serializable{
 
     public void setOportunidade(Oportunidade[] oportunidade) {
         this.oportunidade = oportunidade;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
     }
 
     @Override

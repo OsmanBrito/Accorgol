@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by osman on 28/09/2017.
  */
 
-public class DbHelper extends SQLiteOpenHelper {
+public class DbEmpresario extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "banco.db";
     private static final String TABELA = "empresarios";
@@ -33,7 +33,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
 
 
-    public DbHelper(Context context) {
+    public DbEmpresario(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
     }
 

@@ -1,21 +1,20 @@
 package io.rerum.accorgol.view.jogador;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
-
-import java.util.Map;
 
 import io.rerum.accorgol.R;
+import io.rerum.accorgol.controller.JogadorService;
+import io.rerum.accorgol.model.Jogador;
 
 /**
  * Created by osman on 13/08/2017.
@@ -30,80 +29,51 @@ public class Jogador_Form extends AppCompatActivity{
     private String TAG = "LOG AQUI ACCORGOL";
 
     private EditText nameJogador;
-    private EditText emailJogador;
-    private EditText yearJogador;
+    private EditText anoNascimento;
+    private RadioButton peDominante;
+    private RadioGroup radioGroup;
     private EditText RG;
-    private Spinner estadoJogador;
+    private Spinner posicao;
+    private String email;
+    private String senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jogador_form);
         Firebase.setAndroidContext(this);
-        mRootRef = new Firebase("https://accorgol-5000e.firebaseio.com/Jogador");
 
-        nameJogador = (EditText) findViewById(R.id.JogadorNome);
-        emailJogador = (EditText) findViewById(R.id.JogadorEmail);
-        yearJogador = (EditText) findViewById(R.id.JogadorYear);
-        RG = (EditText) findViewById(R.id.RG);
-        estadoJogador = (Spinner) findViewById(R.id.JogadoEstado);
+        nameJogador = (EditText) findViewById(R.id.cadastroNomeJogador);
+        anoNascimento = (EditText) findViewById(R.id.cadastroAnoJogador);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        RG = (EditText) findViewById(R.id.cadastroRGJogador);
+        posicao = (Spinner) findViewById(R.id.posicao);
+
+        Intent intent = getIntent();
+        this.email = intent.getStringExtra("email");
+        this.senha = intent.getStringExtra("senha");
     }
 
     public void JogadorCadastrado(View view) {
 
-        String name = nameJogador.getText().toString();
-        String email = emailJogador.getText().toString();
-        String year = yearJogador.getText().toString();
-        String estado = estadoJogador.getSelectedItem().toString();
-        String rg = RG.getText().toString();
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+
+        Log.e("COEEE VER O RADIO", String.valueOf(selectedId));
+
+        // find the radiobutton by returned id
+        peDominante = (RadioButton) findViewById(selectedId);
+
+        String nome = this.nameJogador.getText().toString();
+        String posicao = this.posicao.getSelectedItem().toString();
+        String anoNascimento = this.anoNascimento.getText().toString();
+        String RG = this.RG.getText().toString();
+        String peDominante = this.peDominante.getText().toString();
+
+        JogadorService jogadorService = new JogadorService();
+        jogadorService.cadastrarJogador(nome, email, RG, senha, posicao, anoNascimento, peDominante, this);
+        Intent myIntent = new Intent(this, Jogador_Perfil.class);
+        startActivity(myIntent);
 
 
-
-        if (verifyRG(rg)){
-            Firebase id = mRootRef.child(rg);
-
-            id.child("Nome").setValue(name);
-            id.child("Email").setValue(email);
-            id.child("Nascimento").setValue(year);
-            id.child("RG").setValue(rg);
-            id.child("Estado").setValue(estado);
-
-            Toast.makeText(this, "Cadastrado com sucesso!!",
-                    Toast.LENGTH_SHORT).show();
-        }
-        else{
-            Toast.makeText(this, "RG Ja cadastradoo!!!",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-    public boolean verifyRG(String rg2){
-
-        rg2 = "https://accorgol-5000e.firebaseio.com/Jogador/" + rg2;
-        Firebase newRoot = new Firebase(rg2);
-
-        Log.e(TAG, rg2);
-
-        newRoot.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                try{
-                    Map<String, String> map = dataSnapshot.getValue(Map.class);
-                    Log.e(TAG + "Dentro do Try rg = ", map.get("RG"));
-                    flag = true;
-                //se der um erro será pq nao veio nada no Map, significa que nao tem aquele RG cadastrado.
-                }catch (Exception e){
-                    flag = true;
-                }
-
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                Log.e(TAG, "ONCACELLED");
-            }
-        });
-        return flag;
     }
 }

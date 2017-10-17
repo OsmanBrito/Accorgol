@@ -15,7 +15,7 @@
         <activity android:name=".view.jogador.Jogador_Form"/>
         <activity android:name=".view.MainActivity"/>
         <activity android:name=".view.empresario.Empresario_Perfil"/>
-        <activity android:name=".view.empresario.Empresario_form_segunda_etapa"/> <activity android:name=".view.empresario.EmpresarioAlterarPerfil"/>
+        <activity android:name=".view.empresario.Empresario_form_segunda_etapa"/> <activity android:name=".view.empresario.EmpresarioAlterarPerfil"/> <activity android:name=".view.jogador.Jogador_Perfil"/>
         <activity android:name=".view.empresario.EmpresarioHome"/>
         <activity android:name=".view.FirebaseCreate">
             <intent-filter>

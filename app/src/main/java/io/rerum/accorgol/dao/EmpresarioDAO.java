@@ -40,6 +40,13 @@ public class EmpresarioDAO {
         return bc.getDatabase().insert(TABLE_EMPRESARIOS, null, cv) > 0;
     }
 
+    public boolean salvarID(int id){
+        ContentValues cv = new ContentValues();
+        cv.put("idEmpresario", id);
+        return bc.getDatabase().insert(TABLE_EMPRESARIOS, null, cv) > 0;
+
+    }
+
     public int getIdEmpresario(){
         Cursor cursor = bc.getDatabase().rawQuery("SELECT * FROM  empresarios", null);
 
@@ -71,7 +78,7 @@ public class EmpresarioDAO {
             String empresa = cursor.getString(cursor.getColumnIndex("empresa"));
             String registro = cursor.getString(cursor.getColumnIndex("registro"));
 
-            empresario = new Empresario(nome, email, cpf, dataNascimento, endereco, bairro, cidade, estado, new Long(cep), new Long(celular), empresa, registro);
+            empresario = new Empresario(nome, email, cpf, dataNascimento, endereco, bairro, cidade, estado, cep, celular, empresa, registro);
         }
 
         cursor.close();
@@ -84,7 +91,7 @@ public class EmpresarioDAO {
         ContentValues cv = new ContentValues();
         cv.put("nome", empresario.getNomeCompleto());
         cv.put("email", empresario.getEmail());
-        cv.put("datanascimento", empresario.getData());
+        cv.put("datanascimento", empresario.getDataDeNascimento());
         cv.put("endereco", empresario.getEndereco());
         cv.put("bairro", empresario.getBairro());
         cv.put("cidade", empresario.getCidade());

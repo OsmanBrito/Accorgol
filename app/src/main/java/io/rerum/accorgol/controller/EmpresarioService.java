@@ -8,6 +8,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
@@ -34,35 +35,29 @@ public class EmpresarioService{
 
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        final Empresario empresario = new Empresario(nomeCompleto, email, cpf, dataNascimento, endereco, bairro, cidade, estado, new Long(cep), new Long(celular), senha, empresa, numeroRegistro);
-        EmpresarioDAO dao = new EmpresarioDAO(ctx);
-        //TODO Aqui posso mandar o objeto do empresario!!!!!!!
-        boolean sucesso = dao.SalvarCamposObrigatorios(nomeCompleto, email, cpf, dataNascimento, endereco, bairro, cidade, estado, new Long(cep), new Long(celular), senha, empresa, numeroRegistro);
 
-
-        if (sucesso){
-            idEmpresario = dao.getIdEmpresario();
-        } else {
-            Toast.makeText(ctx, "Erro no cadastro.", Toast.LENGTH_LONG).show();
-            return false;
-        }
+        final Empresario empresario = new Empresario(nomeCompleto, email, cpf, dataNascimento, endereco, bairro, cidade, estado, cep, celular, senha, empresa, numeroRegistro);
+//        EmpresarioDAO dao = new EmpresarioDAO(ctx);
+//        boolean sucesso = dao.SalvarCamposObrigatorios(nomeCompleto, email, cpf, dataNascimento, endereco, bairro, cidade, estado, new Long(cep), new Long(celular), senha, empresa, numeroRegistro);
 
         //TODO arrumar o id dos empresarios!!!
-        DatabaseReference myRef = database.getReference("Empresarios").child(String.valueOf(idEmpresario));
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Log.e("COEEEE", "igual anull ");
-                mDatabase.child("Empresarios").child(String.valueOf(idEmpresario)).setValue(empresario);
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+        Helper helper = new Helper();
+        helper.verifyIdInDataBase("Empresarios", ctx, empresario, null);
 
-            }
-        });
+//        DatabaseReference myRef = database.getReference("Empresarios").child(String.valueOf(idEmpresario));
+//
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                Log.e("COEEEE VER O COUNT", String.valueOf(dataSnapshot.getChildrenCount()));
+//                mDatabase.child("Empresarios").child(String.valueOf(idEmpresario)).setValue(empresario);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {}
+//        });
 
         return true;
     }
@@ -92,7 +87,7 @@ public class EmpresarioService{
                 String numeroRegistro = dataSnapshot.child("numeroRegistro").getValue(String.class);
                 String senha = dataSnapshot.child("senha").getValue(String.class);
 
-                empresario[0] = new Empresario(nomeCompleto, email, cpf, data, endereco, bairro, cidade, estado, new Long(cep), new Long(celular),empresa, numeroRegistro);
+                empresario[0] = new Empresario(nomeCompleto, email, cpf, data, endereco, bairro, cidade, estado, cep, celular,empresa, numeroRegistro);
                 Log.e("COEEEE", empresario[0].getBairro());
             }
 
@@ -104,8 +99,6 @@ public class EmpresarioService{
 //        EmpresarioDAO dao = new EmpresarioDAO(ctx);
 //        return dao.retornaEmpresario();
         return empresario[0];
-
-
     }
 
     public boolean alterarPerfilEmpresario(Empresario empresario, Context ctx) {
