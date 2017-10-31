@@ -1,279 +1,599 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#2b4f7c">
+    android:scrollbarAlwaysDrawVerticalTrack="true"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="358dp"
-        android:layout_height="496dp"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="18dp"
-        android:background="#fff">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <TextView
-            android:id="@+id/textView20"
+            android:onClick="voltarTela"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="268dp"
-            tools:layout_editor_absoluteY="171dp" />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Voltar"
+            android:textColor="#1c37ff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/rgPerfilJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="#fff"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textexte"
+            app:layout_constraintStart_toEndOf="@+id/textexte"
+            app:layout_constraintTop_toTopOf="@+id/textexte"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/nomePerfilJogador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="197dp" />
+            android:textColor="#fff"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textextexte"
+            app:layout_constraintStart_toEndOf="@+id/textextexte"
+            app:layout_constraintTop_toTopOf="@+id/textextexte" />
 
         <TextView
-            android:id="@+id/textView22"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            tools:layout_editor_absoluteX="268dp"
-            tools:layout_editor_absoluteY="197dp" />
-
-        <TextView
+            android:textColor="#fff"
             android:id="@+id/textView21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="92dp"
+            android:layout_marginTop="8dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="259dp"
-            tools:layout_editor_absoluteY="413dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         <TextView
+            android:textColor="#fff"
             android:id="@+id/textView27"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="8dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="413dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
 
         <TextView
-            android:id="@+id/textView26"
+            android:id="@+id/textexte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="8dp"
+            android:text="RG"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textextexte" />
+
+        <TextView
+            android:id="@+id/textextexte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="8dp"
+            android:text="Nome"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <TextView
+            android:id="@+id/texteView232"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="88dp"
+            android:layout_marginTop="8dp"
+            android:text="Posição"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textexte" />
+
+        <TextView
+            android:id="@+id/posicaoPerfilJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="TextView"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="171dp" />
+            android:textColor="#fff"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/texteView232"
+            app:layout_constraintStart_toEndOf="@+id/texteView232"
+            app:layout_constraintTop_toTopOf="@+id/texteView232" />
 
         <TextView
-            android:id="@+id/textView16"
+            android:id="@+id/textVV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView5"
-            android:layout_alignBottom="@+id/textView5"
-            android:layout_alignEnd="@+id/textView13"
-            android:layout_alignStart="@+id/textView15"
-            android:text="100"
-            tools:layout_editor_absoluteX="317dp"
+            android:layout_marginStart="88dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+            android:text="Pé dominante"
+            android:textColor="#fff"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/texteView232" />
 
         <TextView
-            android:id="@+id/textView18"
+            android:id="@+id/pePerfilJogador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView7"
-            android:layout_alignBottom="@+id/textView7"
-            android:layout_alignEnd="@+id/textView15"
-            android:text="Atacante"
-            tools:layout_editor_absoluteX="284dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            android:text="TextView"
+            android:textColor="#fff"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textVV"
+            app:layout_constraintStart_toEndOf="@+id/textVV"
+            app:layout_constraintTop_toTopOf="@+id/textVV" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/textViewSuper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/textView7"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="17dp"
-            android:text="1994"
-            tools:layout_editor_absoluteX="309dp"
+            android:layout_marginStart="88dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+            android:text="Ano"
+            android:textColor="#fff"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textVV" />
+
+        <TextView
+            android:id="@+id/anoPerfiljogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="#fff"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textViewSuper"
+            app:layout_constraintStart_toEndOf="@+id/textViewSuper"
+            app:layout_constraintTop_toTopOf="@+id/textViewSuper" />
+
 
         <ImageView
+            android:background="#fff"
             android:id="@+id/imageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="182dp"
+            android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="14dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="50sp"
             android:src="@mipmap/ic_launcher"
-            tools:layout_editor_absoluteY="16dp"
-            tools:layout_editor_absoluteX="16dp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/imageView"
-            android:layout_centerHorizontal="true"
-            android:text="Nome: "
-            tools:layout_editor_absoluteY="16dp"
-            app:layout_constraintLeft_toRightOf="@+id/imageView"
-            android:layout_marginLeft="8dp" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView4"
-            android:layout_alignBottom="@+id/textView4"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="16dp"
-            android:text="Fulado da silva"
-            tools:layout_editor_absoluteY="16dp"
-            tools:layout_editor_absoluteX="248dp" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_alignStart="@+id/textView7"
-            android:text="Gols marcados"
-            tools:layout_editor_absoluteY="90dp"
-            app:layout_constraintLeft_toRightOf="@+id/imageView"
-            android:layout_marginLeft="8dp" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView6"
-            android:layout_below="@+id/textView6"
-            android:text="Posição: "
-            tools:layout_editor_absoluteY="65dp"
-            app:layout_constraintRight_toLeftOf="@+id/textView18"
-            android:layout_marginRight="8dp"
-            app:layout_constraintLeft_toRightOf="@+id/imageView"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintHorizontal_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView4"
-            android:layout_below="@+id/textView4"
-            android:text="Ano: "
-            tools:layout_editor_absoluteY="41dp"
-            app:layout_constraintLeft_toRightOf="@+id/imageView"
-            android:layout_marginLeft="8dp" />
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="357dp"
-            android:layout_height="3dp"
-            android:background="#ccc"
-            android:backgroundTint="#ccc"
-            android:textColor="#ccc"
-            android:text="Button"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="443dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="357dp"
-            android:layout_height="3dp"
+            android:layout_width="408dp"
+            android:layout_height="10dp"
+            android:layout_marginTop="8dp"
             android:background="#ccc"
             android:backgroundTint="#ccc"
             android:text="Button"
             android:textColor="#ccc"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="366dp" />
+            app:layout_constraintTop_toBottomOf="@+id/videoView5"
+            tools:layout_editor_absoluteX="0dp" />
 
         <Button
             android:id="@+id/button6"
-            android:layout_width="357dp"
-            android:layout_height="3dp"
+            android:layout_width="378dp"
+            android:layout_height="8dp"
+            android:layout_marginLeft="-21dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:background="#ccc"
             android:backgroundTint="#ccc"
             android:text="Button"
             android:textColor="#ccc"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="132dp" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
+            android:textColor="#fff"
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:text="Conquistas"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="129dp"
-            tools:layout_editor_absoluteY="456dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button7" />
 
         <TextView
+            android:textColor="#fff"
             android:id="@+id/textView25"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="52dp"
             android:text="Carreira"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="143dp"
-            tools:layout_editor_absoluteY="380dp" />
-
-        <VideoView
-            android:id="@+id/videoView2"
-            android:layout_width="68dp"
-            android:layout_height="60dp"
-            tools:layout_editor_absoluteY="291dp"
-            app:layout_constraintLeft_toRightOf="@+id/videoView6"
-            android:layout_marginLeft="10dp" />
-
-        <VideoView
-            android:id="@+id/videoView6"
-            android:layout_width="68dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="12dp"
-            app:layout_constraintLeft_toRightOf="@+id/videoView5"
-            tools:layout_editor_absoluteY="291dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         <VideoView
             android:id="@+id/videoView5"
-            android:layout_width="68dp"
-            android:layout_height="60dp"
-            tools:layout_editor_absoluteY="291dp"
+            android:layout_width="136dp"
+            android:layout_height="102dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintLeft_toRightOf="@+id/videoView3"
-            android:layout_marginLeft="8dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
         <VideoView
             android:id="@+id/videoView3"
-            android:layout_width="68dp"
-            android:layout_height="60dp"
-            tools:layout_editor_absoluteX="30dp"
-            tools:layout_editor_absoluteY="291dp" />
+            android:layout_width="131dp"
+            android:layout_height="101dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
         <TextView
             android:id="@+id/textView24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Videos "
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:text="Videos"
+            android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="146dp"
-            tools:layout_editor_absoluteY="248dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/anoPerfiljogador" />
 
         <TextView
             android:id="@+id/textView28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:text="Dados Pessoais"
-            android:textSize="20sp"
+            android:textColor="#fff"
+            android:textSize="30sp"
             android:textStyle="bold"
-            tools:layout_editor_absoluteX="107dp"
-            tools:layout_editor_absoluteY="147dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button6"
+            app:layout_constraintVertical_bias="0.034" />
 
     </android.support.constraint.ConstraintLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</ScrollView>
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<android.support.constraint.ConstraintLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@color/colorPrimary">-->
+
+    <!--<android.support.constraint.ConstraintLayout-->
+        <!--android:layout_width="354dp"-->
+        <!--android:layout_height="506dp"-->
+        <!--android:background="#fff"-->
+        <!--tools:layout_editor_absoluteX="1dp"-->
+        <!--tools:layout_editor_absoluteY="7dp">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView20"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="TextView"-->
+            <!--tools:layout_editor_absoluteX="268dp"-->
+            <!--tools:layout_editor_absoluteY="171dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView19"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="TextView"-->
+            <!--tools:layout_editor_absoluteX="30dp"-->
+            <!--tools:layout_editor_absoluteY="197dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView22"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="TextView"-->
+            <!--tools:layout_editor_absoluteX="268dp"-->
+            <!--tools:layout_editor_absoluteY="197dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView21"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="TextView"-->
+            <!--tools:layout_editor_absoluteX="259dp"-->
+            <!--tools:layout_editor_absoluteY="413dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView27"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="TextView"-->
+            <!--tools:layout_editor_absoluteX="30dp"-->
+            <!--tools:layout_editor_absoluteY="413dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textexte"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="TextView"-->
+            <!--tools:layout_editor_absoluteX="30dp"-->
+            <!--tools:layout_editor_absoluteY="171dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView16"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBaseline="@+id/textView5"-->
+            <!--android:layout_alignBottom="@+id/textView5"-->
+            <!--android:layout_alignEnd="@+id/textView13"-->
+            <!--android:layout_alignStart="@+id/textView15"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:text="100"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/textView18"-->
+            <!--tools:layout_editor_absoluteX="317dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView18"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBaseline="@+id/textView7"-->
+            <!--android:layout_alignBottom="@+id/textView7"-->
+            <!--android:layout_alignEnd="@+id/textView15"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:text="Atacante"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/textView15"-->
+            <!--tools:layout_editor_absoluteX="284dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView15"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@+id/textView7"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginEnd="17dp"-->
+            <!--android:layout_marginTop="8dp"-->
+            <!--android:text="1994"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/textView13"-->
+            <!--tools:layout_editor_absoluteX="309dp" />-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imageView"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_marginStart="14dp"-->
+            <!--android:src="@mipmap/ic_launcher"-->
+            <!--tools:layout_editor_absoluteX="16dp"-->
+            <!--tools:layout_editor_absoluteY="16dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView4"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignTop="@+id/imageView"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:text="Nome: "-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/imageView"-->
+            <!--tools:layout_editor_absoluteY="16dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView13"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBaseline="@+id/textView4"-->
+            <!--android:layout_alignBottom="@+id/textView4"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginEnd="16dp"-->
+            <!--android:text="Fulado da silva"-->
+            <!--tools:layout_editor_absoluteX="248dp"-->
+            <!--tools:layout_editor_absoluteY="16dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView5"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBottom="@+id/imageView"-->
+            <!--android:layout_alignStart="@+id/textView7"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:text="Gols marcados"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/imageView"-->
+            <!--tools:layout_editor_absoluteY="90dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView7"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignStart="@+id/textView6"-->
+            <!--android:layout_below="@+id/textView6"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:layout_marginRight="8dp"-->
+            <!--android:text="Posição: "-->
+            <!--app:layout_constraintHorizontal_bias="0.0"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/imageView"-->
+            <!--app:layout_constraintRight_toLeftOf="@+id/textView18"-->
+            <!--tools:layout_editor_absoluteY="65dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView6"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignStart="@+id/textView4"-->
+            <!--android:layout_below="@+id/textView4"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--android:text="Ano: "-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/imageView"-->
+            <!--tools:layout_editor_absoluteY="41dp" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button5"-->
+            <!--android:layout_width="357dp"-->
+            <!--android:layout_height="3dp"-->
+            <!--android:background="#ccc"-->
+            <!--android:backgroundTint="#ccc"-->
+            <!--android:text="Button"-->
+            <!--android:textColor="#ccc"-->
+            <!--tools:layout_editor_absoluteX="1dp"-->
+            <!--tools:layout_editor_absoluteY="443dp" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button7"-->
+            <!--android:layout_width="357dp"-->
+            <!--android:layout_height="3dp"-->
+            <!--android:background="#ccc"-->
+            <!--android:backgroundTint="#ccc"-->
+            <!--android:text="Button"-->
+            <!--android:textColor="#ccc"-->
+            <!--tools:layout_editor_absoluteX="1dp"-->
+            <!--tools:layout_editor_absoluteY="366dp" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button6"-->
+            <!--android:layout_width="357dp"-->
+            <!--android:layout_height="3dp"-->
+            <!--android:background="#ccc"-->
+            <!--android:backgroundTint="#ccc"-->
+            <!--android:text="Button"-->
+            <!--android:textColor="#ccc"-->
+            <!--tools:layout_editor_absoluteX="0dp"-->
+            <!--tools:layout_editor_absoluteY="132dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView17"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Conquistas"-->
+            <!--android:textSize="20sp"-->
+            <!--android:textStyle="bold"-->
+            <!--tools:layout_editor_absoluteX="129dp"-->
+            <!--tools:layout_editor_absoluteY="456dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView25"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Carreira"-->
+            <!--android:textSize="20sp"-->
+            <!--android:textStyle="bold"-->
+            <!--tools:layout_editor_absoluteX="143dp"-->
+            <!--tools:layout_editor_absoluteY="380dp" />-->
+
+        <!--<VideoView-->
+            <!--android:id="@+id/videoView2"-->
+            <!--android:layout_width="68dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/videoView6"-->
+            <!--tools:layout_editor_absoluteY="291dp" />-->
+
+        <!--<VideoView-->
+            <!--android:id="@+id/videoView6"-->
+            <!--android:layout_width="68dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/videoView5"-->
+            <!--tools:layout_editor_absoluteY="291dp" />-->
+
+        <!--<VideoView-->
+            <!--android:id="@+id/videoView5"-->
+            <!--android:layout_width="68dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--android:layout_marginLeft="8dp"-->
+            <!--app:layout_constraintLeft_toRightOf="@+id/videoView3"-->
+            <!--tools:layout_editor_absoluteY="291dp" />-->
+
+        <!--<VideoView-->
+            <!--android:id="@+id/videoView3"-->
+            <!--android:layout_width="68dp"-->
+            <!--android:layout_height="60dp"-->
+            <!--tools:layout_editor_absoluteX="30dp"-->
+            <!--tools:layout_editor_absoluteY="291dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView24"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Videos "-->
+            <!--android:textSize="20sp"-->
+            <!--android:textStyle="bold"-->
+            <!--tools:layout_editor_absoluteX="146dp"-->
+            <!--tools:layout_editor_absoluteY="248dp" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView28"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Dados Pessoais"-->
+            <!--android:textSize="20sp"-->
+            <!--android:textStyle="bold"-->
+            <!--tools:layout_editor_absoluteX="107dp"-->
+            <!--tools:layout_editor_absoluteY="147dp" />-->
+
+    <!--</android.support.constraint.ConstraintLayout>-->
+
+
+<!--</android.support.constraint.ConstraintLayout>-->

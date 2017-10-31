@@ -19,18 +19,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Intent intent = getIntent();
         this.email = intent.getStringExtra("email");
         this.senha = intent.getStringExtra("senha");
-
     }
 
     public void EmpresarioButton(View view) {
         Intent myIntent = new Intent(this, Empresario_form.class);
         myIntent.putExtra("email", email);
         myIntent.putExtra("senha", senha);
-        Log.e("COEEEE", email);
         MainActivity.this.startActivity(myIntent);
     }
 

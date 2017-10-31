@@ -1,10 +1,8 @@
 package io.rerum.accorgol.view.empresario;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,9 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import io.rerum.accorgol.R;
-import io.rerum.accorgol.controller.EmpresarioService;
-import io.rerum.accorgol.dao.EmpresarioDAO;
-import io.rerum.accorgol.model.Empresario;
+import io.rerum.accorgol.dao.UsuarioDAO;
 
 /**
  * Created by osman on 03/10/2017.
@@ -74,8 +70,8 @@ public class Empresario_Perfil extends AppCompatActivity {
     public void buscaEmpresarioBanco(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        EmpresarioDAO dao = new EmpresarioDAO(this);
-        int id = dao.getIdEmpresario();
+        UsuarioDAO dao = new UsuarioDAO(this);
+        int id = dao.getIdUsuario();
 
         DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+id);
         myRef.addValueEventListener(new ValueEventListener() {

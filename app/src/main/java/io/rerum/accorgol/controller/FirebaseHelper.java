@@ -9,10 +9,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import io.rerum.accorgol.dao.EmpresarioDAO;
+import io.rerum.accorgol.dao.UsuarioDAO;
 import io.rerum.accorgol.model.Empresario;
 import io.rerum.accorgol.model.Jogador;
 
@@ -20,7 +20,7 @@ import io.rerum.accorgol.model.Jogador;
  * Created by osman on 10/10/2017.
  */
 
-public class Helper {
+public class FirebaseHelper {
 
     private int count;
     private DatabaseReference mDatabase;
@@ -33,18 +33,16 @@ public class Helper {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 //                String agenteFifa = dataSnapshot.child("agenteFifa").getValue(String.class);
-                if (count == 0){
+                if (count == 0) {
                     count = (int) dataSnapshot.getChildrenCount() + 1;
-                    if (root.equals("Empresarios")){
-                        EmpresarioDAO dao = new EmpresarioDAO(ctx);
-                        dao.salvarID(count);
+                    UsuarioDAO dao = new UsuarioDAO(ctx);
+                    dao.salvarID(count);
+                    if (root.equals("Empresarios")) {
                         empresario.setIdEmpresario(count);
-                        mDatabase.child("Empresarios").child(String.valueOf(count)).setValue(empresario/*.forName("Empresario")*/);
-                    } else if (root.equals("Jogadores")){
-                        EmpresarioDAO dao = new EmpresarioDAO(ctx);
-                        dao.salvarID(count);
+                        mDatabase.child(root).child(String.valueOf(count)).setValue(empresario);
+                    } else {
                         jogador.setIdJogador(count);
-                        mDatabase.child("Jogadores").child(String.valueOf(count)).setValue(jogador/*.forName("Empresario")*/);
+                        mDatabase.child(root).child(String.valueOf(count)).setValue(jogador);
                     }
                 }
             }
@@ -53,7 +51,6 @@ public class Helper {
                 Log.e("COEEEE ERRROOOO", databaseError.toString());
             }
         });
-
     }
 
 }

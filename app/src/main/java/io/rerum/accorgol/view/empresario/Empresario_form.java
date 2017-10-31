@@ -24,8 +24,6 @@ public class Empresario_form extends AppCompatActivity{
     private EditText celular;
     private EditText cpf;
     private EditText dataNascimento;
-
-
     private String email;
     private String senha;
 
@@ -33,29 +31,22 @@ public class Empresario_form extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.empresario_form);
-
         this.nome = (EditText) findViewById(R.id.EmpresarioNomeCompleto);
         this.cpf = (EditText)  findViewById(R.id.cpf);
         this.dataNascimento = (EditText)  findViewById(R.id.dataNascimentoEmpresario);
         this.estado = (Spinner) findViewById(R.id.EmpresarioEstado);
         this.celular = (EditText) findViewById(R.id.EmpresarioPhone);
-
         Intent intent = getIntent();
         this.email = intent.getStringExtra("email");
         this.senha = intent.getStringExtra("senha");
-
-        Log.e("COEEEE222", email);
-
     }
 
     public void empresarioCadastradoPrimeiraEtapa(View view) {
-
         String nome = this.nome.getText().toString();
         String estado = this.estado.getSelectedItem().toString();
         String celular = this.celular.getText().toString();
         String cpf = this.cpf.getText().toString();
         String dataNascimento = this.dataNascimento.getText().toString();
-
         Intent myIntent = new Intent(this, Empresario_form_segunda_etapa.class);
         myIntent.putExtra("email", email);
         myIntent.putExtra("senha", senha);
@@ -65,6 +56,5 @@ public class Empresario_form extends AppCompatActivity{
         myIntent.putExtra("cpf", cpf);
         myIntent.putExtra("dataNascimento", dataNascimento);
         startActivity(myIntent);
-
     }
 }

@@ -3,7 +3,7 @@ package io.rerum.accorgol.controller;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import io.rerum.accorgol.dao.DbEmpresario;
+import io.rerum.accorgol.dao.DbUsuario;
 
 /**
  * Created by osman on 28/09/2017.
@@ -15,7 +15,7 @@ public class BancoController {
     private SQLiteDatabase db;
 
     private BancoController(Context ctx){
-        DbEmpresario helper = new DbEmpresario(ctx);
+        DbUsuario helper = new DbUsuario(ctx);
         db = helper.getWritableDatabase();
     }
 

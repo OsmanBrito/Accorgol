@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.empresario.Empresario_form"/>
-        <activity android:name=".view.jogador.Jogador_Form"/>
-        <activity android:name=".view.MainActivity"/>
-        <activity android:name=".view.empresario.Empresario_Perfil"/>
+        <activity android:name=".view.jogador.Jogador_Form"/> <activity android:name=".view.empresario.AddOportunidade"/>
+        <activity android:name=".view.MainActivity"/> <activity android:name=".view.empresario.ResultadoBuscaDeTalentos"/> <activity android:name=".view.empresario.VerPerfilJogador"/>
+        <activity android:name=".view.empresario.Empresario_Perfil"/> <activity android:name=".view.empresario.ProcurarTalentos"/> <activity android:name=".view.empresario.GerenciarOportunidades"/>
         <activity android:name=".view.empresario.Empresario_form_segunda_etapa"/> <activity android:name=".view.empresario.EmpresarioAlterarPerfil"/> <activity android:name=".view.jogador.Jogador_Perfil"/>
         <activity android:name=".view.empresario.EmpresarioHome"/>
         <activity android:name=".view.FirebaseCreate">
@@ -24,6 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.jogador.PesquisarEmpresario" />
+        <activity android:name=".view.empresario.BuscarEmpresarios" />
     </application>
 
 </manifest>

@@ -2,10 +2,6 @@ package io.rerum.accorgol.controller;
 
 import android.content.Context;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import io.rerum.accorgol.model.Empresario;
 import io.rerum.accorgol.model.Jogador;
 
 /**
@@ -14,20 +10,14 @@ import io.rerum.accorgol.model.Jogador;
 
 public class JogadorService {
 
-    private int idEmpresario;
-    private DatabaseReference mDatabase;
-
-    public boolean cadastrarJogador(String nome, String email, String RG,String senha, String posicao, String anoNascimento, String peDominante, Context ctx){
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
+    public void cadastrarJogador(String nome, String email, String RG,String senha, String posicao, String anoNascimento, String peDominante, Context ctx){
         Jogador jogador = new Jogador(email, senha, nome, RG,posicao, peDominante, anoNascimento);
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
+        firebaseHelper.verifyIdInDataBase("Jogadores", ctx, null, jogador);
+    }
 
-        Helper helper = new Helper();
-        helper.verifyIdInDataBase("Jogadores", ctx, null, jogador);
+    public void alterarJogador(String nome, String email, String posicao, String anoNascimento, String peDominante, Context ctx){
 
-        return true;
     }
 
 }

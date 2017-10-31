@@ -20,10 +20,18 @@ public class EmpresarioHome extends AppCompatActivity{
 
     }
 
-    public void EmpresarioPerfil(View view) {
-
+    public void empresarioPerfil(View view) {
         Intent intent  = new Intent(this, Empresario_Perfil.class);
         startActivity(intent);
+    }
 
+    public void procurarTalentos(View view) {
+        Intent intent  = new Intent(this, ProcurarTalentos.class);
+        startActivity(intent);
+    }
+
+    public void gerenciarOportunidades(View view) {
+        Intent intent  = new Intent(this, GerenciarOportunidades.class);
+        startActivity(intent);
     }
 }

@@ -3,54 +3,50 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.design.widget.TabLayout
-        android:layout_width="393dp"
-        android:layout_height="34dp"
-        app:tabIndicatorColor="@color/colorPrimaryDark"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fadeScrollbars="false"
-            android:text="Perfil" />
-
-        <android.support.design.widget.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fadeScrollbars="false"
-            android:text="Pesquisar" />
-    </android.support.design.widget.TabLayout>
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
 
     <SearchView
-        android:background="#ccc"
-        android:layout_width="392dp"
+        android:id="@+id/searchView"
+        android:layout_width="339dp"
         android:layout_height="62dp"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="182dp" />
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="72dp"
+        android:background="#ccc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
 
     <Button
+        android:onClick="buscarEmpresarios"
         android:id="@+id/button8"
-        android:textColor="#fdfd01"
-        android:background="@color/EmpresarioColor"
-        android:layout_width="390dp"
-        android:layout_height="47dp"
+        android:layout_width="344dp"
+        android:layout_height="63dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
         android:text="Pesquisar"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="260dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pesquise o nome do empresário"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="100dp"
-        android:textSize="30sp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="32dp"
         android:gravity="center"
-        android:textStyle="bold"/>
+        android:text="Pesquise o nome do empresário"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

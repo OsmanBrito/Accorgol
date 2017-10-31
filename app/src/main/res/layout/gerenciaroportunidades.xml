@@ -2,37 +2,56 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent" android:background="@color/EmpresarioColor"
+    android:orientation="vertical" android:layout_width="match_parent" android:background="@color/colorPrimary"
     android:layout_height="match_parent">
 
-    <QuickContactBadge
-        android:id="@+id/quickContactBadge2"
-        tools:layout_editor_absoluteX="336dp"
-        tools:layout_editor_absoluteY="16dp"
+    <TextView
+        android:onClick="voltarTela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/border2" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Voltar"
+        android:textColor="#1c37ff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:textColor="#fff"
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:text="Oportunidades"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="72dp" />
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
-        android:layout_width="359dp"
-        android:layout_height="166dp"
+        android:id="@+id/relativeLayout"
+        android:layout_width="326dp"
+        android:layout_height="164dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="152dp"
         android:background="#fff"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="137dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
-            android:id="@+id/textView31"
+            android:id="@+id/textView312223"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -42,16 +61,16 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/textView33232222"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView32"
-            android:layout_below="@+id/textView34"
+            android:layout_below="@+id/textView342323232"
             android:layout_marginTop="25dp"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/textView34"
+            android:id="@+id/textView342323232"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -72,36 +91,36 @@
             android:id="@+id/textView36"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_alignBaseline="@+id/textView32"
             android:layout_alignBottom="@+id/textView32"
-            android:layout_alignStart="@+id/textView35" />
+            android:layout_alignStart="@+id/textView35"
+            android:text="TextView" />
 
         <TextView
             android:id="@+id/textView35"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_alignBaseline="@+id/textView33232222"
+            android:layout_alignBottom="@+id/textView33232222"
             android:layout_marginStart="37dp"
-            android:layout_alignBaseline="@+id/textView33"
-            android:layout_alignBottom="@+id/textView33"
-            android:layout_toEndOf="@+id/textView34" />
+            android:layout_toEndOf="@+id/textView342323232"
+            android:text="TextView" />
 
         <TextView
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView312223"
+            android:layout_below="@+id/textView33232222"
             android:layout_marginTop="18dp"
-            android:text="TextView"
-            android:layout_below="@+id/textView33"
-            android:layout_alignStart="@+id/textView31" />
+            android:text="TextView" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/textView33"
-            android:layout_toStartOf="@+id/textView33"
+            android:layout_above="@+id/textView33232222"
+            android:layout_toStartOf="@+id/textView33232222"
             app:srcCompat="@android:drawable/ic_delete" />
 
         <ImageView
@@ -115,14 +134,22 @@
 
 
     <RelativeLayout
-        android:layout_width="359dp"
-        android:layout_height="166dp"
+        android:layout_width="327dp"
+        android:layout_height="164dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:background="#fff"
-        tools:layout_editor_absoluteX="13dp"
-        tools:layout_editor_absoluteY="329dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.975">
 
         <TextView
-            android:id="@+id/textView31"
+            android:id="@+id/textView312223"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -132,16 +159,16 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/textView33232222"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignStart="@+id/textView32"
-            android:layout_below="@+id/textView34"
+            android:layout_below="@+id/textView342323232"
             android:layout_marginTop="25dp"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/textView34"
+            android:id="@+id/textView342323232"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -162,29 +189,29 @@
             android:id="@+id/textView36"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             android:layout_alignBaseline="@+id/textView32"
             android:layout_alignBottom="@+id/textView32"
-            android:layout_alignStart="@+id/textView35" />
+            android:layout_alignStart="@+id/textView35"
+            android:text="TextView" />
 
         <TextView
             android:id="@+id/textView35"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:layout_alignBaseline="@+id/textView33232222"
+            android:layout_alignBottom="@+id/textView33232222"
             android:layout_marginStart="37dp"
-            android:layout_alignBaseline="@+id/textView33"
-            android:layout_alignBottom="@+id/textView33"
-            android:layout_toEndOf="@+id/textView34" />
+            android:layout_toEndOf="@+id/textView342323232"
+            android:text="TextView" />
 
         <TextView
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textView312223"
+            android:layout_below="@+id/textView33232222"
             android:layout_marginTop="18dp"
-            android:text="TextView"
-            android:layout_below="@+id/textView33"
-            android:layout_alignStart="@+id/textView31" />
+            android:text="TextView" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -198,17 +225,22 @@
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView34"
+            android:layout_alignBottom="@+id/textView342323232"
             android:layout_alignParentEnd="true"
             app:srcCompat="@android:drawable/ic_menu_edit" />
     </RelativeLayout>
 
     <ImageView
+        android:onClick="addOportunidade"
         android:id="@+id/imageView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteX="332dp"
-        tools:layout_editor_absoluteY="72dp" />
+        android:layout_width="42dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView30"
+        app:layout_constraintStart_toEndOf="@+id/textView30"
+        app:layout_constraintTop_toTopOf="@+id/textView30"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 </android.support.constraint.ConstraintLayout>

@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.controller.EmpresarioService;
+import io.rerum.accorgol.dao.UsuarioDAO;
 import io.rerum.accorgol.model.Empresario;
 
 /**
@@ -87,7 +88,8 @@ public class EmpresarioAlterarPerfil extends AppCompatActivity {
 
     public void buscarEmpresario(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/2");
+        UsuarioDAO usuarioDAO = new UsuarioDAO(this);
+        final DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+usuarioDAO.getIdUsuario());
 
         final Empresario[] empresario = new Empresario[1];
 
@@ -118,9 +120,9 @@ public class EmpresarioAlterarPerfil extends AppCompatActivity {
 
 
     public void AlterarDadosPerfilEmpresario(View view) {
-
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/2");
+        UsuarioDAO usuarioDAO = new UsuarioDAO(this);
+        final DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+usuarioDAO.getIdUsuario());
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override

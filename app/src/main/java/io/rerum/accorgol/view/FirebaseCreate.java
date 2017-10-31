@@ -18,8 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import io.rerum.accorgol.R;
-import io.rerum.accorgol.dao.EmpresarioDAO;
+import io.rerum.accorgol.dao.UsuarioDAO;
 import io.rerum.accorgol.view.empresario.EmpresarioHome;
+import io.rerum.accorgol.view.jogador.Jogador_Perfil;
 
 /**
  * Created by osman on 18/09/2017.
@@ -54,8 +55,8 @@ public class FirebaseCreate extends AppCompatActivity{
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
-        EmpresarioDAO empresarioDAO = new EmpresarioDAO(this);
-        if(empresarioDAO.getIdEmpresario()  !=  0){
+        UsuarioDAO usuarioDAO = new UsuarioDAO(this);
+        if(usuarioDAO.getIdUsuario()  !=  0){
             Log.e("COEEEE", "tem cadastro!");
             Intent intent = new Intent(this, EmpresarioHome.class);
             startActivity(intent);
@@ -73,10 +74,6 @@ public class FirebaseCreate extends AppCompatActivity{
 
 
     private void createAccount(final String email, final String password) {
-        Log.d(TAG, "createAccount:" + email);
-
-//        showProgressDialog();
-
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -92,11 +89,6 @@ public class FirebaseCreate extends AppCompatActivity{
 
 //                            updateUI(user);
                         } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(FirebaseCreate.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-//                            updateUI(null);
                         }
 
                         // ...
@@ -118,9 +110,9 @@ public class FirebaseCreate extends AppCompatActivity{
 //                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(FirebaseCreate.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+//                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+//                            Toast.makeText(FirebaseCreate.this, "Authentication failed.",
+//                                    Toast.LENGTH_SHORT).show();
 //                            updateUI(null);
                         }
 
