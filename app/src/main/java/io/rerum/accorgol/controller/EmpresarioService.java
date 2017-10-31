@@ -41,7 +41,7 @@ public class EmpresarioService{
                 String cep = dataSnapshot.child("cep").getValue(String.class);
                 String cidade = dataSnapshot.child("cidade").getValue(String.class);
                 String cpf = dataSnapshot.child("cpf").getValue(String.class);
-                String data = dataSnapshot.child("dataNascimento").getValue(String.class);
+                String data = dataSnapshot.child("dataDeNascimento").getValue(String.class);
                 String email = dataSnapshot.child("email").getValue(String.class);
                 String empresa = dataSnapshot.child("empresa").getValue(String.class);
                 String endereco = dataSnapshot.child("endereco").getValue(String.class);

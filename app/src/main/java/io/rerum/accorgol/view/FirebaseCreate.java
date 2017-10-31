@@ -85,6 +85,8 @@ public class FirebaseCreate extends AppCompatActivity{
                             Intent intent = new Intent(FirebaseCreate.this, MainActivity.class);
                             intent.putExtra("email", email);
                             intent.putExtra("senha", password);
+                            Toast.makeText(FirebaseCreate.this, "Conta criada com sucesso!",
+                                    Toast.LENGTH_SHORT).show();
                             startActivity(intent);
 
 //                            updateUI(user);
@@ -106,13 +108,13 @@ public class FirebaseCreate extends AppCompatActivity{
                             Intent intent = new Intent(FirebaseCreate.this, MainActivity.class);
                             intent.putExtra("email", email);
                             intent.putExtra("senha", password);
+                            Toast.makeText(FirebaseCreate.this, "Login efetuado com sucesso!",
+                                    Toast.LENGTH_SHORT).show();
                             startActivity(intent);
 //                            updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
 //                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-//                            Toast.makeText(FirebaseCreate.this, "Authentication failed.",
-//                                    Toast.LENGTH_SHORT).show();
 //                            updateUI(null);
                         }
 

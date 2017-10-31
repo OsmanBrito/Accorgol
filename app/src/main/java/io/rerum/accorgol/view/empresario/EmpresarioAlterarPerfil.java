@@ -103,7 +103,7 @@ public class EmpresarioAlterarPerfil extends AppCompatActivity {
                 celular.setText(dataSnapshot.child("celular").getValue(String.class));
                 cep.setText(dataSnapshot.child("cep").getValue(String.class));
                 cidade.setText(dataSnapshot.child("cidade").getValue(String.class));
-                dataNascimento.setText(dataSnapshot.child("dataNascimento").getValue(String.class));
+                dataNascimento.setText(dataSnapshot.child("dataDeNascimento").getValue(String.class));
                 email.setText(dataSnapshot.child("email").getValue(String.class));
                 empresa.setText(dataSnapshot.child("empresa").getValue(String.class));
                 endereco.setText(dataSnapshot.child("endereco").getValue(String.class));

@@ -27,7 +27,6 @@
                 android:text="Cadastro de Empresário"/>
             <EditText
                 android:id="@+id/EmpresarioEndereco"
-                android:text="rua teste1"
                 android:hint="Endereço. (Rua jose nº 332 apto 32)"
                 android:layout_margin="10dp"
                 android:layout_width="match_parent"
@@ -36,7 +35,6 @@
                 android:layout_height="wrap_content" />
 
             <EditText
-                android:text="bairo222"
                 android:layout_margin="10dp"
                 android:id="@+id/EmpresarioBairro"
                 android:layout_width="match_parent"
@@ -47,7 +45,6 @@
                 android:textColor="#fff" />
 
             <EditText
-                android:text="cidade11"
                 android:layout_margin="10sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -57,7 +54,6 @@
                 android:textColorHint="#fff"/>
 
             <EditText
-                android:text="122123"
                 android:layout_margin="10dp"
                 android:id="@+id/EmpresarioCEP"
                 android:layout_width="match_parent"
@@ -69,7 +65,6 @@
                 android:inputType="numberDecimal" />
 
             <EditText
-                android:text="Empresarios"
                 android:layout_margin="10sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -79,7 +74,6 @@
                 android:textColorHint="#fff"/>
 
             <EditText
-                android:text="121212"
                 android:layout_margin="10sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -96,7 +90,7 @@
                 android:layout_height="29dp"
                 android:layout_gravity="center"
                 android:background="@color/colorPrimary"
-                android:textColor="@color/EmpresarioColor"
+                android:textColor="#41e9ff"
                 android:textStyle="bold"
                 android:text="Preencher este formulario depois" />
 

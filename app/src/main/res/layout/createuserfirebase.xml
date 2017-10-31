@@ -51,7 +51,7 @@
         android:layout_marginLeft="20sp"
         android:layout_marginRight="20sp"
         android:layout_width="match_parent"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
         android:layout_height="wrap_content"
         android:hint="Digite aqui a sua senha."
         android:textColor="#fff"

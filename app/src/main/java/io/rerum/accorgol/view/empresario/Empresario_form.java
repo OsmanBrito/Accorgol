@@ -54,7 +54,7 @@ public class Empresario_form extends AppCompatActivity{
         myIntent.putExtra("estado", estado);
         myIntent.putExtra("celular", celular);
         myIntent.putExtra("cpf", cpf);
-        myIntent.putExtra("dataNascimento", dataNascimento);
+        myIntent.putExtra("dataDeNascimento", dataNascimento);
         startActivity(myIntent);
     }
 }

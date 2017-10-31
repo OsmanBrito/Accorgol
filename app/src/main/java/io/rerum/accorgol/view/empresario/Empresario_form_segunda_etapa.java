@@ -42,7 +42,7 @@ public class Empresario_form_segunda_etapa extends AppCompatActivity {
         this.cpf = intent.getStringExtra("cpf");
         this.estado = intent.getStringExtra("estado");
         this.celular = intent.getStringExtra("celular");
-        this.dataNascimento = intent.getStringExtra("dataNascimento");
+        this.dataNascimento = intent.getStringExtra("dataDeNascimento");
         this.bairro = (EditText) findViewById(R.id.EmpresarioBairro);
         this.endereco = (EditText) findViewById(R.id.EmpresarioEndereco);
         this.cidade = (EditText) findViewById(R.id.EmpresarioCidade);
