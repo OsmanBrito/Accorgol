@@ -20,7 +20,7 @@
             android:layout_marginTop="16dp"
             android:onClick="pesquisarEmpresario"
             android:text="Pesquisar Empresario"
-            android:textColor="#1c37ff"
+            android:textColor="#48c5ff"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -81,21 +81,20 @@
             android:id="@+id/textexte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
             android:layout_marginTop="8dp"
             android:text="RG"
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textextexte"
             app:layout_constraintTop_toBottomOf="@+id/textextexte" />
 
         <TextView
             android:id="@+id/textextexte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="24dp"
             android:text="Nome"
             android:textColor="#fff"
             android:textSize="20sp"
@@ -107,13 +106,12 @@
             android:id="@+id/texteView232"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
             android:layout_marginTop="8dp"
             android:text="Posição"
             android:textColor="#fff"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textexte"
             app:layout_constraintTop_toBottomOf="@+id/textexte" />
 
         <TextView
@@ -134,13 +132,12 @@
             android:id="@+id/textVV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
             android:layout_marginTop="8dp"
             android:text="Pé dominante"
             android:textColor="#fff"
             android:textSize="23sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/texteView232"
             app:layout_constraintTop_toBottomOf="@+id/texteView232" />
 
         <TextView
@@ -161,13 +158,12 @@
             android:id="@+id/textViewSuper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="88dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="Ano"
             android:textColor="#fff"
             android:textSize="23sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textVV"
             app:layout_constraintTop_toBottomOf="@+id/textVV" />
 
         <TextView
