@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_perfil"
+        icon="@mipmap/ic_account_circle_white_24dp"
+        title="Peril" />
+    <tab
+        id="@+id/tab_carreira"
+        icon="@mipmap/ic_account_circle_white_24dp"
+        title="Carreira" />
+    <tab
+        id="@+id/tab_conquista"
+        icon="@mipmap/ic_account_circle_white_24dp"
+        title="Conquista" />
+</tabs>

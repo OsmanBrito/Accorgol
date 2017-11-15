@@ -22,6 +22,7 @@ public class Jogador {
     private String cidade;
     private String estado;
     private String celular;
+    private int fotoJogador;
 
     public Jogador(String nomeCompleto, String posicao, String peDominante, String altura, String peso, String email, String RG, String senha, String anoNascimento, String bairro, String cidade, String estado, String celular) {
         this.nomeCompleto = nomeCompleto;
@@ -159,5 +160,13 @@ public class Jogador {
 
     public void setCelular(String celular) {
         this.celular = celular;
+    }
+
+    public int getFotoJogador() {
+        return fotoJogador;
+    }
+
+    public void setFotoJogador(int fotoJogador) {
+        this.fotoJogador = fotoJogador;
     }
 }

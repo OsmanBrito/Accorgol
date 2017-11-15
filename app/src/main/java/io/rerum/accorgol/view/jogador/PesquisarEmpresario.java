@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import io.rerum.accorgol.R;
-import io.rerum.accorgol.view.empresario.BuscarEmpresarios;
 
 /**
  * Created by osman on 31/10/2017.

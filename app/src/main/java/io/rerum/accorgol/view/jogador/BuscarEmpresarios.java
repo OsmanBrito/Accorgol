@@ -1,4 +1,4 @@
-package io.rerum.accorgol.view.empresario;
+package io.rerum.accorgol.view.jogador;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

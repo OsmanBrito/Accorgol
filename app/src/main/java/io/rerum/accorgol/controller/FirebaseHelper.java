@@ -32,7 +32,6 @@ public class FirebaseHelper {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-//                String agenteFifa = dataSnapshot.child("agenteFifa").getValue(String.class);
                 if (count == 0) {
                     count = (int) dataSnapshot.getChildrenCount() + 1;
                     UsuarioDAO dao = new UsuarioDAO(ctx);
