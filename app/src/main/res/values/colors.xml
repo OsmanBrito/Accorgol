@@ -3,7 +3,7 @@
     <color name="colorPrimary">#00bccd</color>
     <!--<color name="colorPrimaryDark">#008f9c</color>-->
     <color name="colorPrimaryDark">#00bccd</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorAccent">#00bccd</color>
     <color name="JogadorColor">#fdfd01</color>
     <color name="JogadorColorPefil">#ffff5c</color>
     <color name="EmpresarioColor">#1f487c</color>

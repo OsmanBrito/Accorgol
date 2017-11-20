@@ -51,7 +51,11 @@
         <item>1,75</item>
         <item>1,80</item>
         <item>1,85</item>
-        <item>1,90</item>
+        <item>1,90</item>n v
+    </string-array>
+
+    <string-array name="clubes">
+        <item></item>
     </string-array>
 
 </resources>

@@ -2,12 +2,8 @@ package io.rerum.accorgol.view.jogador;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,12 +14,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.roughike.bottombar.BottomBar;
-import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.dao.UsuarioDAO;
-import io.rerum.accorgol.view.jogador.fragments.PerfilFragment;
+import io.rerum.accorgol.view.jogador.fragments.CarreiraFragment;
+import io.rerum.accorgol.view.jogador.fragments.JogadorPerfilFragment;
+import io.rerum.accorgol.view.jogador.fragments.SemDadoCarreira;
 
 /**
  * Created by osman on 17/10/2017.
@@ -37,6 +34,7 @@ public class Jogador_Perfil extends AppCompatActivity{
     private TextView posicao;
     private TextView pedominante;
     private BottomBar bottomBar;
+    private boolean flag = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,19 +45,26 @@ public class Jogador_Perfil extends AppCompatActivity{
         dataNascimento = (TextView) findViewById(R.id.anoPerfiljogador);
         posicao = (TextView) findViewById(R.id.posicaoPerfilJogador);
         pedominante = (TextView) findViewById(R.id.pePerfilJogador);
-
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(int tabId) {
-                if (tabId == R.id.tab_perfil) {
-                    Toast.makeText(getApplicationContext(), "perfil", Toast.LENGTH_LONG).show();
-                    PerfilFragment perfilFragment = new PerfilFragment();
-                    android.app.FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.contentContainer, perfilFragment, perfilFragment.getTag()).commit();
-                } else if (tabId == R.id.tab_carreira) {
+                android.app.FragmentManager manager = getFragmentManager();
+               if (tabId == R.id.tab_perfil) {
+                   Toast.makeText(getApplicationContext(), "perfil", Toast.LENGTH_LONG).show();
+                   JogadorPerfilFragment jo = new JogadorPerfilFragment();
+                   manager.beginTransaction().replace(R.id.contentContainer, jo, jo.getTag()).commit();
+               } else if (tabId == R.id.tab_carreira) {
                     Toast.makeText(getApplicationContext(), "conquista", Toast.LENGTH_LONG).show();
-                } else {
+//                    SemDadoCarreira perfilFragment = new SemDadoCarreira();
+                    CarreiraFragment carreiraFragment = new CarreiraFragment();
+//                    if  (!flag){
+                    manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
+//                    } else {
+//                        manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
+//                    }
+                }
+                else {
                     Toast.makeText(getApplicationContext(), "carreira", Toast.LENGTH_LONG).show();
                 }
             }
@@ -69,19 +74,26 @@ public class Jogador_Perfil extends AppCompatActivity{
     @Override
     protected void onStart() {
         super.onStart();
-        buscaJogador();
+//        verifyDB();
     }
 
-    public void buscaJogador(){
+    public void verifyDB(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-
         UsuarioDAO dao = new UsuarioDAO(this);
         int id = dao.getIdUsuario();
-
         DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Jogadores/"+id);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if (dataSnapshot.child("Carreira").getKey().equals("Carreira")){
+                    flag = true;
+                    CarreiraFragment carreiraFragment = new CarreiraFragment();
+                    android.app.FragmentManager manager = getFragmentManager();
+                    manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
+                } else {
+                    Log.e("JOGADOR_PERFIL", dataSnapshot.getKey());
+                }
 //                nome.setText(dataSnapshot.child("nomeCompleto").getValue(String.class));
 //                dataNascimento.setText(dataSnapshot.child("anoNascimento").getValue(String.class));
 //                posicao.setText(dataSnapshot.child("posicao").getValue(String.class));

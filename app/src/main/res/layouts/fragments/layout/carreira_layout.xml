@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/posicaoClube"
+        app:layout_constraintTop_toBottomOf="@+id/posicaoClube">
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:text="Adicionar clube na carreira"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="76dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/nomeClube"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Aqui o nome" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inicioClubeInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView23"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_password">
+
+            <EditText
+                android:id="@+id/inicioClube"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="De" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="10dp"
+            android:text="Até"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/inicioClubeInput"
+            app:layout_constraintEnd_toStartOf="@+id/ateClubeInput"
+            app:layout_constraintStart_toEndOf="@+id/inicioClubeInput" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/ateClubeInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="14dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toStartOf="@+id/textView26"
+            app:layout_constraintStart_toEndOf="@+id/textView23"
+            app:layout_constraintTop_toBottomOf="@+id/input_layout_password">
+
+            <EditText
+                android:id="@+id/ateClube"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Fim" />
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="14dp"
+            android:text="Atual"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/clubeAtual"
+            app:layout_constraintStart_toEndOf="@+id/ateClubeInput"
+            app:layout_constraintTop_toTopOf="@+id/ateClubeInput" />
+
+        <CheckBox
+            android:id="@+id/clubeAtual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textView26"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView26" />
+
+        <Spinner
+            android:id="@+id/posicaoClube"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="76dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginTop="76dp"
+            android:background="@drawable/background"
+            android:entries="@array/posicao"
+            app:layout_constraintBottom_toTopOf="@+id/assistenciaClubeInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView31"
+            app:layout_constraintTop_toTopOf="@+id/ateClubeInput"
+            app:layout_constraintVertical_bias="0.174" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="18dp"
+            android:src="@android:drawable/arrow_down_float"
+            app:layout_constraintEnd_toEndOf="@+id/posicaoClube"
+            app:layout_constraintTop_toTopOf="@+id/posicaoClube" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="16dp"
+            android:text="Posição: "
+            android:textSize="20sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/posicaoClube"
+            app:layout_constraintEnd_toStartOf="@+id/posicaoClube"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/quantidadePartidasClubeInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posicaoClube">
+
+            <EditText
+                android:id="@+id/quantidadePartidasClube"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Quantidade de partidas no clube" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/golsClubeInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="9dp"
+            android:layout_marginStart="19dp"
+            app:layout_constraintBottom_toTopOf="@+id/golsSofridosInput"
+            app:layout_constraintEnd_toStartOf="@+id/assistenciaClubeInput"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <EditText
+                android:id="@+id/golsClube"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Numero de gols" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/assistenciaClubeInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="156dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/golsClubeInput"
+            app:layout_constraintTop_toBottomOf="@+id/clubeAtual">
+
+            <EditText
+                android:id="@+id/assistenciaClube"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Assistências"
+                android:inputType="numberDecimal" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/golsSofridosInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/assistenciaClubeInput">
+
+            <EditText
+                android:id="@+id/golsSofridos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Número de gols sofridos"
+                android:inputType="numberDecimal" />
+        </android.support.design.widget.TextInputLayout>
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/bootstrapButton3"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="14dp"
+            android:text="Adicionar"
+            app:bootstrapBrand="primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/golsSofridosInput" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</ScrollView>
