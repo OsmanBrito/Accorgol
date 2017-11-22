@@ -6,10 +6,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,9 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.controller.FirebaseHelper;
@@ -58,7 +63,7 @@ public class JogadorPerfilFragment extends Fragment {
         SemVideoFragment semVideoFragment = new SemVideoFragment();
         ComVideoFragment comVideoFragment = new ComVideoFragment();
         android.app.FragmentManager manager = getFragmentManager();
-        if (new UsuarioDAO(view.getContext()).hasVideo() == 1){
+        if (new UsuarioDAO(view.getContext()).hasVideo() == 1 || new FirebaseHelper().recuperar(view.getContext(), "VideoPerfil").equals("Tem")){
             manager.beginTransaction().replace(R.id.contentContainervideoJogador, comVideoFragment, comVideoFragment.getTag()).commit();
         } else {
             manager.beginTransaction().replace(R.id.contentContainervideoJogador, semVideoFragment, semVideoFragment.getTag()).commit();
@@ -154,9 +159,21 @@ public class JogadorPerfilFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
+    public void onStart(){
 //        mDatabase = FirebaseDatabase.getInstance().getReference();
-        Picasso.with(ctx).load(new FirebaseHelper().recuperar(ctx, "fotoPerfil").toString()).into(fotoPerfil);
+        try {
+            Picasso.with(ctx).load(new FirebaseHelper().recuperar(ctx, "fotoPerfil").toString()).into(fotoPerfil);
+        }catch (Exception e){
+            Log.e("USUARIO CATHC!!! ", String.valueOf(e));
+            InputStream istr = null;
+            try {
+                istr = ctx.getAssets().open("ic_laucher.png");
+                this.fotoPerfil.setImageDrawable(Drawable.createFromStream(istr, null));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            //set drawable from stream
+        }
         super.onStart();
     }
 }

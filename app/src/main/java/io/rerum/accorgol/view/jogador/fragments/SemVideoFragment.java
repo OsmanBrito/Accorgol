@@ -22,6 +22,7 @@ import com.google.firebase.storage.OnPausedListener;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.controller.FirebaseHelper;
@@ -88,7 +89,7 @@ public class SemVideoFragment extends Fragment {
 
         if ( (requestCode == GALLERY_INTENT && resultCode == RESULT_OK) || requestCode == REQUEST_VIDEO_CAPTURE){
 
-            Uri uri = data.getData();
+            final Uri uri = data.getData();
             StorageReference filepath = mStorage.child("Videos").child(String.valueOf(new FirebaseHelper().recuperar(ctx, "IDUsuario")));
             progressDoalog = new ProgressDialog(ctx);
             progressDoalog.setMax(100);
@@ -106,9 +107,15 @@ public class SemVideoFragment extends Fragment {
                     progressDoalog.setProgress((int)progress);
                     progressDoalog.setCancelable(false);
                     if (progress == 100) {
+                        FirebaseHelper firebaseHelper = new FirebaseHelper();
+                        firebaseHelper.armazenar(ctx, "Tem", "VideoPerfil");
+                        Uri testeUri = taskSnapshot.getMetadata().getDownloadUrl();
                         UsuarioDAO dao = new UsuarioDAO(ctx);
                         dao.attVideoUsuario(true);
                         progressDoalog.dismiss();
+                        android.app.FragmentManager manager = getFragmentManager();
+                        ComVideoFragment comVideoFragment = new ComVideoFragment();
+                        manager.beginTransaction().replace(R.id.contentContainervideoJogador, comVideoFragment, comVideoFragment.getTag()).commit();
                     }
 
                 }
@@ -131,9 +138,5 @@ public class SemVideoFragment extends Fragment {
                 }
             });
         }
-
     }
-
-
-
 }
