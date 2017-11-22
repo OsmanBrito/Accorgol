@@ -1,6 +1,8 @@
 package io.rerum.accorgol.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +21,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.dao.UsuarioDAO;
-import io.rerum.accorgol.view.empresario.EmpresarioHome;
 import io.rerum.accorgol.view.jogador.Jogador_Perfil;
 
 /**
@@ -50,26 +51,38 @@ public class FirebaseCreate extends AppCompatActivity{
 
     @Override
     public void onStart() {
-        super.onStart();
-
         mDatabase = FirebaseDatabase.getInstance().getReference();
-
-
         UsuarioDAO usuarioDAO = new UsuarioDAO(this);
-        if(usuarioDAO.getIdUsuario()  !=  0){
-            Log.e("COEEEE", "tem cadastro!");
+        if(usuarioDAO.getIDBanco()  !=  0){
+            Log.e("COEEEE", "TEM CADSATRO");
+//            aqui sera setado o id do usuario para poder colocar nas URLs do fireabse, pegando fotos e videos DO USUARIO
             Intent intent = new Intent(this, Jogador_Perfil.class);
             startActivity(intent);
-        }
-        else{
+        } else {
             Log.e("COEEEE", "Nao tem cadastro!!");
         }
+//        UsuarioDAO usuarioDAO = new UsuarioDAO(this);
+//        if(usuarioDAO.getIDBanco()  !=  0){
+//            Log.e("COEEEE", "tem cadastro!");
+//            //aqui sera setado o id do usuario para poder colocar nas URLs do fireabse, pegando fotos e videos DO USUARIO
+//            UsuarioDAO dao = new UsuarioDAO(getApplicationContext());
+//            int id = dao.getIDBanco();
+//            HelperDAO helperDAO = new HelperDAO();
+//            DaoVideoHelper daoVideoHelper = new DaoVideoHelper();
+//            Log.e("USUARIO no começo, ando o valor pro helperDAO", String.valueOf(id));
+//            helperDAO.setIdUsuario(id);
+//            Intent intent = new Intent(this, Jogador_Perfil.class);
+//            startActivity(intent);
+//        }
+//        else{
+//            Log.e("COEEEE", "Nao tem cadastro!!");
+//        }
 
 
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         Log.e(TAG, "quero ver!!!! "+currentUser);
-//        updateUI(currentUser);
+        super.onStart();
     }
 
 
@@ -123,11 +136,15 @@ public class FirebaseCreate extends AppCompatActivity{
                 });
 //        EmailPasswordActivity.java
     }
-
     //irá verificar se o usuário ja tem cadastro, caso tenha ele ira para pagina inicial do app.
     public void CreateFireBase(View view) {
         //minimo 6 caracteres para senha
         createAccount(email.getText().toString(), senha.getText().toString());
+    }
 
+    public static final String PREFS_NAME = "MyPrefsFile";
+    private String recuperar(Context context){
+        SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
+        return settings.getString("id", "");
     }
 }

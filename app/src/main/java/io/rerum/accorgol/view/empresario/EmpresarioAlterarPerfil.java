@@ -1,16 +1,11 @@
 package io.rerum.accorgol.view.empresario;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -89,7 +84,7 @@ public class EmpresarioAlterarPerfil extends AppCompatActivity {
     public void buscarEmpresario(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         UsuarioDAO usuarioDAO = new UsuarioDAO(this);
-        final DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+usuarioDAO.getIdUsuario());
+        final DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+usuarioDAO.getIDBanco());
 
         final Empresario[] empresario = new Empresario[1];
 
@@ -122,7 +117,7 @@ public class EmpresarioAlterarPerfil extends AppCompatActivity {
     public void AlterarDadosPerfilEmpresario(View view) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         UsuarioDAO usuarioDAO = new UsuarioDAO(this);
-        final DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+usuarioDAO.getIdUsuario());
+        final DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+usuarioDAO.getIDBanco());
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override

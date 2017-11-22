@@ -5,8 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import java.io.Serializable;
+
 import io.rerum.accorgol.controller.BancoController;
-import io.rerum.accorgol.model.Empresario;
 
 /**
  * Created by osman on 28/09/2017.
@@ -21,45 +22,65 @@ public class UsuarioDAO {
         bc = BancoController.getInstance(ctx);
     }
 
-//    public boolean SalvarCamposObrigatorios(String nomeCompleto, String email, String cpf, String dataDeNascimento, String endereco, String bairro, String cidade, String estado, Long cep, Long celular, String senha, String empresa, String numeroRegistro){
-//        ContentValues cv = new ContentValues();
-//        cv.put("nome", nomeCompleto);
-//        cv.put("email", email);
-//        cv.put("cpf", cpf);
-//        cv.put("datanascimento", dataDeNascimento);
-//        cv.put("endereco", endereco);
-//        cv.put("bairro", bairro);
-//        cv.put("cidade", cidade);
-//        cv.put("estado", estado);
-//        cv.put("cep", cep);
-//        cv.put("celular", celular);
-//        cv.put("senha", senha);
-//        cv.put("empresa", empresa);
-//        cv.put("registro", numeroRegistro);
-//
-//        return bc.getDatabase().insert(TABLE_EMPRESARIOS, null, cv) > 0;
-//    }
-
     public boolean salvarID(int id){
         ContentValues cv = new ContentValues();
+        Log.e("USUARIODAO", String.valueOf(id));
         cv.put("idUsuario", id);
         return bc.getDatabase().insert(TABLE_EMPRESARIOS, null, cv) > 0;
 
     }
 
-    public int getIdUsuario(){
+    public int getIDBanco(){
         Cursor cursor = bc.getDatabase().rawQuery("SELECT * FROM  usuario", null);
-
         int id = 0;
-
         while(cursor.moveToNext()){
             id = cursor.getInt(cursor.getColumnIndex("idUsuario"));
+            Log.e("USUARIO dentro while", String.valueOf(id));
         }
         cursor.close();
-
+        Log.i("USUARIOGETID", String.valueOf(id));
         return id;
     }
 
+    public boolean attVideoUsuario(boolean video){
+        ContentValues cv = new ContentValues();
+        if (video){
+            cv.put("video", 1);
+        } else {
+            cv.put("video", 0);
+        }
+        return bc.getDatabase().insert(TABLE_EMPRESARIOS, null, cv) > 0;
+    }
+
+    public boolean attFotoUsuario(boolean foto){
+        ContentValues cv = new ContentValues();
+        if (foto){
+            cv.put("foto", 1);
+        } else {
+            cv.put("foto", 0);
+        }
+        return bc.getDatabase().insert(TABLE_EMPRESARIOS, null, cv) > 0;
+    }
+
+    public int hasVideo(){
+        Cursor cursor = bc.getDatabase().rawQuery("SELECT * FROM  usuario", null);
+        int id = 0;
+        while(cursor.moveToNext()){
+            id = cursor.getInt(cursor.getColumnIndex("video"));
+        }
+        cursor.close();
+        return id;
+    }
+
+    public int hasFoto() {
+        Cursor cursor = bc.getDatabase().rawQuery("SELECT * FROM  usuario", null);
+        int id = 0;
+        while(cursor.moveToNext()){
+            id = cursor.getInt(cursor.getColumnIndex("foto"));
+        }
+        cursor.close();
+        return id;
+    }
 //    public Empresario retornaEmpresario(){
 //        Empresario empresario = new Empresario();
 //        Cursor cursor = bc.getDatabase().rawQuery("SELECT * FROM empresarios", null);
@@ -101,9 +122,9 @@ public class UsuarioDAO {
 //        cv.put("empresa", empresario.getEmpresa());
 //        cv.put("registro", empresario.getNumeroRegistro());
 //
-//        return bc.getDatabase().update(TABLE_EMPRESARIOS, cv, "idEmpresario = ?", new String[]{ this.getIdUsuario() +  ""}) > 0;
+//        return bc.getDatabase().update(TABLE_EMPRESARIOS, cv, "idEmpresario = ?", new String[]{ this.getIdUsuario1() +  ""}) > 0;
 //
 //    }
 
-
 }
+

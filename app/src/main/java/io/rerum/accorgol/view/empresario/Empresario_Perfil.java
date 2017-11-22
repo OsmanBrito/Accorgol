@@ -71,7 +71,7 @@ public class Empresario_Perfil extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         UsuarioDAO dao = new UsuarioDAO(this);
-        int id = dao.getIdUsuario();
+        int id = dao.getIDBanco();
 
         DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+id);
         myRef.addValueEventListener(new ValueEventListener() {

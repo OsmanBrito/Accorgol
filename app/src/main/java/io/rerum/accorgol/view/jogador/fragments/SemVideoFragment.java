@@ -10,12 +10,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -27,8 +24,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import io.rerum.accorgol.R;
+import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.dao.UsuarioDAO;
-import io.rerum.accorgol.view.MainActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -92,8 +89,7 @@ public class SemVideoFragment extends Fragment {
         if ( (requestCode == GALLERY_INTENT && resultCode == RESULT_OK) || requestCode == REQUEST_VIDEO_CAPTURE){
 
             Uri uri = data.getData();
-            Log.e("osman - ", String.valueOf(uri));
-            StorageReference filepath = mStorage.child("Videos").child(String.valueOf(new UsuarioDAO(ctx).getIdUsuario()));
+            StorageReference filepath = mStorage.child("Videos").child(String.valueOf(new FirebaseHelper().recuperar(ctx, "IDUsuario")));
             progressDoalog = new ProgressDialog(ctx);
             progressDoalog.setMax(100);
             progressDoalog.setMessage("Upload do vídeo");
@@ -108,7 +104,10 @@ public class SemVideoFragment extends Fragment {
 //                    Toast.makeText(ctx, "Download: "+progress+"% ", Toast.LENGTH_LONG).show();
                     System.out.println("Upload is " + progress + "% done");
                     progressDoalog.setProgress((int)progress);
+                    progressDoalog.setCancelable(false);
                     if (progress == 100) {
+                        UsuarioDAO dao = new UsuarioDAO(ctx);
+                        dao.attVideoUsuario(true);
                         progressDoalog.dismiss();
                     }
 

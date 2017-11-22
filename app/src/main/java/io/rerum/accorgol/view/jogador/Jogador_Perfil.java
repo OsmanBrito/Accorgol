@@ -3,24 +3,16 @@ package io.rerum.accorgol.view.jogador;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import io.rerum.accorgol.R;
-import io.rerum.accorgol.dao.UsuarioDAO;
 import io.rerum.accorgol.view.jogador.fragments.CarreiraFragment;
 import io.rerum.accorgol.view.jogador.fragments.JogadorPerfilFragment;
-import io.rerum.accorgol.view.jogador.fragments.SemDadoCarreira;
 
 /**
  * Created by osman on 17/10/2017.
@@ -77,34 +69,34 @@ public class Jogador_Perfil extends AppCompatActivity{
 //        verifyDB();
     }
 
-    public void verifyDB(){
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        UsuarioDAO dao = new UsuarioDAO(this);
-        int id = dao.getIdUsuario();
-        DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Jogadores/"+id);
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-
-                if (dataSnapshot.child("Carreira").getKey().equals("Carreira")){
-                    flag = true;
-                    CarreiraFragment carreiraFragment = new CarreiraFragment();
-                    android.app.FragmentManager manager = getFragmentManager();
-                    manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
-                } else {
-                    Log.e("JOGADOR_PERFIL", dataSnapshot.getKey());
-                }
-//                nome.setText(dataSnapshot.child("nomeCompleto").getValue(String.class));
-//                dataNascimento.setText(dataSnapshot.child("anoNascimento").getValue(String.class));
-//                posicao.setText(dataSnapshot.child("posicao").getValue(String.class));
-//                pedominante.setText(dataSnapshot.child("peDominante").getValue(String.class));
-//                rg.setText(dataSnapshot.child("rg").getValue(String.class));
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-    }
+//    public void verifyDB(){
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        UsuarioDAO dao = new UsuarioDAO(this);
+//        int id = dao.getIDBanco();
+//        DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Jogadores/"+id);
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                if (dataSnapshot.child("Carreira").getKey().equals("Carreira")){
+//                    flag = true;
+//                    CarreiraFragment carreiraFragment = new CarreiraFragment();
+//                    android.app.FragmentManager manager = getFragmentManager();
+//                    manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
+//                } else {
+//                    Log.e("JOGADOR_PERFIL", dataSnapshot.getKey());
+//                }
+////                nome.setText(dataSnapshot.child("nomeCompleto").getValue(String.class));
+////                dataNascimento.setText(dataSnapshot.child("anoNascimento").getValue(String.class));
+////                posicao.setText(dataSnapshot.child("posicao").getValue(String.class));
+////                pedominante.setText(dataSnapshot.child("peDominante").getValue(String.class));
+////                rg.setText(dataSnapshot.child("rg").getValue(String.class));
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//    }
 
     public void pesquisarEmpresario(View view) {
         Intent myIntent = new Intent(this, PesquisarEmpresario.class);

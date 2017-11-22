@@ -15,7 +15,9 @@ public class DbUsuario extends SQLiteOpenHelper {
     private static final String NOME_BANCO = "banco.db";
     private static final String TABELA = "usuario";
     private static final String ID = "idUsuario";
-    private static final int VERSAO = 2;
+    private static final String  FOTO = "foto";
+    private static final String  VIDEO = "video";
+    private static final int VERSAO = 5;
 
 
 
@@ -28,7 +30,9 @@ public class DbUsuario extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         String sql = "CREATE TABLE "+ TABELA+"("
-                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT"
+                + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + FOTO + " INTEGER, "
+                + VIDEO + " INTEGER"
                 + ");";
         db.execSQL(sql);
     }
