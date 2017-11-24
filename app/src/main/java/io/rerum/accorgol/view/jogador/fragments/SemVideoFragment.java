@@ -108,7 +108,7 @@ public class SemVideoFragment extends Fragment {
                     progressDoalog.setCancelable(false);
                     if (progress == 100) {
                         FirebaseHelper firebaseHelper = new FirebaseHelper();
-                        firebaseHelper.armazenar(ctx, "Tem", "VideoPerfil");
+                        firebaseHelper.armazenar(ctx, "Tem", String.valueOf(R.string.video_perfil));
                         Uri testeUri = taskSnapshot.getMetadata().getDownloadUrl();
                         UsuarioDAO dao = new UsuarioDAO(ctx);
                         dao.attVideoUsuario(true);

@@ -11,8 +11,11 @@ import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import io.rerum.accorgol.R;
+import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.view.jogador.fragments.CarreiraFragment;
+import io.rerum.accorgol.view.jogador.fragments.ComConquistaFragment;
 import io.rerum.accorgol.view.jogador.fragments.JogadorPerfilFragment;
+import io.rerum.accorgol.view.jogador.fragments.SemConquistaFragment;
 
 /**
  * Created by osman on 17/10/2017.
@@ -47,17 +50,18 @@ public class Jogador_Perfil extends AppCompatActivity{
                    JogadorPerfilFragment jo = new JogadorPerfilFragment();
                    manager.beginTransaction().replace(R.id.contentContainer, jo, jo.getTag()).commit();
                } else if (tabId == R.id.tab_carreira) {
-                    Toast.makeText(getApplicationContext(), "conquista", Toast.LENGTH_LONG).show();
-//                    SemDadoCarreira perfilFragment = new SemDadoCarreira();
                     CarreiraFragment carreiraFragment = new CarreiraFragment();
-//                    if  (!flag){
                     manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
-//                    } else {
-//                        manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
-//                    }
                 }
                 else {
-                    Toast.makeText(getApplicationContext(), "carreira", Toast.LENGTH_LONG).show();
+                   if (new FirebaseHelper().recuperar(getApplicationContext(), "TemConquista").equals("Tem")){
+                       ComConquistaFragment semConquistaFragment = new ComConquistaFragment();
+                       manager.beginTransaction().replace(R.id.contentContainer, semConquistaFragment, semConquistaFragment.getTag()).commit();
+
+                   } else {
+                       SemConquistaFragment semConquistaFragment = new SemConquistaFragment();
+                       manager.beginTransaction().replace(R.id.contentContainer, semConquistaFragment, semConquistaFragment.getTag()).commit();
+                   }
                 }
             }
         });

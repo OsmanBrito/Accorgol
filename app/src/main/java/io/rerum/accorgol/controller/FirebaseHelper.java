@@ -12,6 +12,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
 
+import io.rerum.accorgol.R;
 import io.rerum.accorgol.dao.UsuarioDAO;
 import io.rerum.accorgol.model.Empresario;
 import io.rerum.accorgol.model.Jogador;
@@ -36,7 +37,7 @@ public class FirebaseHelper implements Serializable{
                     count = (int) dataSnapshot.getChildrenCount() + 1;
                     UsuarioDAO dao = new UsuarioDAO(ctx);
                     dao.salvarID(count);
-                    armazenar(ctx, String.valueOf(count), "IDUsuario");
+                    armazenar(ctx, String.valueOf(count), String.valueOf(R.string.id_Usuario));
 
                     if (root.equals("Empresarios")) {
                         empresario.setIdEmpresario(count);

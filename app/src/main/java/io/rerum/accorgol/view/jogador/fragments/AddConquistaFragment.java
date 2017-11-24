@@ -6,26 +6,21 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnPausedListener;
 import com.google.firebase.storage.OnProgressListener;
@@ -33,44 +28,43 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.io.InputStream;
-
 import io.rerum.accorgol.R;
+import io.rerum.accorgol.controller.ConquistaService;
 import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.dao.UsuarioDAO;
+import io.rerum.accorgol.model.Conquista;
 
 import static android.app.Activity.RESULT_OK;
 
 /**
- * Created by osman on 19/11/2017.
+ * Created by osman on 22/11/2017.
  */
 
-public class JogadorPerfilFragment extends Fragment {
-    private ImageButton fotoButton;
-    private ImageView fotoPerfil;
+public class AddConquistaFragment extends Fragment {
+
+    private ImageButton buttonImage;
+    private ImageView fotoConquista;
+    private BootstrapButton addConquista;
+    private TextView nomeConquista;
+    private TextView anoConquista;
+    private TextView nomeClubeConquista;
     private static final int GALLERY_INTENT = 2;
+    private ProgressDialog progressDoalog;
     private Context ctx;
     private StorageReference mStorage;
-    private ProgressDialog progressDoalog;
-    private DatabaseReference mDatabase;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.perfil_jogador_fragment, container, false);
+        View view = inflater.inflate(R.layout.add_conquista_fragment, container, false);
         ctx = view.getContext();
         mStorage = FirebaseStorage.getInstance().getReference();
-        SemVideoFragment semVideoFragment = new SemVideoFragment();
-        ComVideoFragment comVideoFragment = new ComVideoFragment();
-        android.app.FragmentManager manager = getFragmentManager();
-        if (new UsuarioDAO(view.getContext()).hasVideo() == 1 || new FirebaseHelper().recuperar(view.getContext(), "VideoPerfil").equals("Tem")){
-            manager.beginTransaction().replace(R.id.contentContainervideoJogador, comVideoFragment, comVideoFragment.getTag()).commit();
-        } else {
-            manager.beginTransaction().replace(R.id.contentContainervideoJogador, semVideoFragment, semVideoFragment.getTag()).commit();
-        }
-        fotoButton = (ImageButton) view.findViewById(R.id.addFotoPerfil);
-        fotoPerfil = (ImageView) view.findViewById(R.id.fotoPerfilJogador);
-        fotoButton.setOnClickListener(new View.OnClickListener() {
+        addConquista = (BootstrapButton) view.findViewById(R.id.addItemConquista);
+        fotoConquista = (ImageView) view.findViewById(R.id.fotoConquista);
+        nomeClubeConquista = (TextView) view.findViewById(R.id.nomeClubeConquista);
+        nomeConquista = (TextView) view.findViewById(R.id.nomeConquista);
+        anoConquista = (TextView) view.findViewById(R.id.anoConquista);
+        buttonImage = (ImageButton) view.findViewById(R.id.addFotoConquista);
+        buttonImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new AlertDialog.Builder(view.getContext())
@@ -92,6 +86,22 @@ public class JogadorPerfilFragment extends Fragment {
                         .setIcon(R.mipmap.ic_launcher)
                         .setNegativeButton("Cancel", null)
                         .show();
+                view.setVisibility(View.GONE);
+            }
+        });
+        addConquista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Conquista conquista = new Conquista(nomeConquista.getText().toString(),
+                                                    nomeClubeConquista.getText().toString(),
+                                                    anoConquista.getText().toString(),
+                                                    new FirebaseHelper().recuperar(ctx, "fotoConquista"));
+                ConquistaService conquistaService = new ConquistaService();
+                String id = new FirebaseHelper().recuperar(ctx, "IDUsuario");
+                conquistaService.addConquista(conquista, "Jogadores/"+ id + "/Conquistas", ctx);
+                android.app.FragmentManager manager = getFragmentManager();
+                ComConquistaFragment cc = new ComConquistaFragment();
+                manager.beginTransaction().replace(R.id.contentContainer, cc, cc.getTag()).commit();
             }
         });
         return view;
@@ -104,11 +114,11 @@ public class JogadorPerfilFragment extends Fragment {
         if ((requestCode == GALLERY_INTENT && resultCode == RESULT_OK) || requestCode == 2) {
 
             final Uri uri = data.getData();
-            final StorageReference filepath = mStorage.child("Fotos/Perfil").child(String.valueOf(new FirebaseHelper().recuperar(ctx, "IDUsuario")));
+            final StorageReference filepath = mStorage.child("Fotos/Conquista").child(String.valueOf(new FirebaseHelper().recuperar(ctx, "IDUsuario"))+"-"+data.getScheme());
             progressDoalog = new ProgressDialog(ctx);
             progressDoalog.setMax(100);
-            progressDoalog.setMessage("Upload da fotoButton");
-            progressDoalog.setTitle("Fazendo o upload da fotoButton");
+            progressDoalog.setMessage("Upload da foto");
+            progressDoalog.setTitle("Fazendo o upload da foto");
             progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             progressDoalog.show();
 
@@ -121,13 +131,11 @@ public class JogadorPerfilFragment extends Fragment {
                     progressDoalog.setProgress((int) progress);
                     progressDoalog.setCancelable(false);
                     if (progress == 100) {
-                        UsuarioDAO dao = new UsuarioDAO(ctx);
-                        dao.attFotoUsuario(true);
-                        progressDoalog.dismiss();
                         FirebaseHelper firebaseHelper = new FirebaseHelper();
                         Uri testeUri = taskSnapshot.getMetadata().getDownloadUrl();
-                        firebaseHelper.armazenar(ctx, String.valueOf(testeUri), String.valueOf(R.string.foto_perfil));
-                        Picasso.with(ctx).load(testeUri).into(fotoPerfil);
+                        firebaseHelper.armazenar(ctx, String.valueOf(testeUri), String.valueOf(R.string.foto_conquista));
+                        Picasso.with(ctx).load(testeUri).into(fotoConquista);
+                        progressDoalog.dismiss();
                     }
                 }
             }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
@@ -158,22 +166,4 @@ public class JogadorPerfilFragment extends Fragment {
 //        }
     }
 
-    @Override
-    public void onStart(){
-//        mDatabase = FirebaseDatabase.getInstance().getReference();
-        try {
-            Picasso.with(ctx).load(new FirebaseHelper().recuperar(ctx, "fotoPerfil").toString()).into(fotoPerfil);
-        }catch (Exception e){
-            Log.e("USUARIO CATHC!!! ", String.valueOf(e));
-            InputStream istr = null;
-            try {
-                istr = ctx.getAssets().open("ic_laucher.png");
-                this.fotoPerfil.setImageDrawable(Drawable.createFromStream(istr, null));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-            //set drawable from stream
-        }
-        super.onStart();
-    }
 }
