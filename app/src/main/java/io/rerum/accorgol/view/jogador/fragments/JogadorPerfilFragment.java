@@ -104,7 +104,7 @@ public class JogadorPerfilFragment extends Fragment {
         if ((requestCode == GALLERY_INTENT && resultCode == RESULT_OK) || requestCode == 2) {
 
             final Uri uri = data.getData();
-            final StorageReference filepath = mStorage.child("Fotos/Perfil").child(String.valueOf(new FirebaseHelper().recuperar(ctx, "IDUsuario")));
+            final StorageReference filepath = mStorage.child("Fotos/Perfil").child(String.valueOf(new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario))));
             progressDoalog = new ProgressDialog(ctx);
             progressDoalog.setMax(100);
             progressDoalog.setMessage("Upload da fotoButton");
@@ -162,7 +162,7 @@ public class JogadorPerfilFragment extends Fragment {
     public void onStart(){
 //        mDatabase = FirebaseDatabase.getInstance().getReference();
         try {
-            Picasso.with(ctx).load(new FirebaseHelper().recuperar(ctx, "fotoPerfil").toString()).into(fotoPerfil);
+            Picasso.with(ctx).load(new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.foto_perfil)).toString()).into(fotoPerfil);
         }catch (Exception e){
             Log.e("USUARIO CATHC!!! ", String.valueOf(e));
             InputStream istr = null;

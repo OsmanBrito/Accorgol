@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,6 +53,7 @@ public class AddConquistaFragment extends Fragment {
     private ProgressDialog progressDoalog;
     private Context ctx;
     private StorageReference mStorage;
+    private Uri uriConquista;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -92,16 +94,61 @@ public class AddConquistaFragment extends Fragment {
         addConquista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Conquista conquista = new Conquista(nomeConquista.getText().toString(),
-                                                    nomeClubeConquista.getText().toString(),
-                                                    anoConquista.getText().toString(),
-                                                    new FirebaseHelper().recuperar(ctx, "fotoConquista"));
-                ConquistaService conquistaService = new ConquistaService();
-                String id = new FirebaseHelper().recuperar(ctx, "IDUsuario");
-                conquistaService.addConquista(conquista, "Jogadores/"+ id + "/Conquistas", ctx);
-                android.app.FragmentManager manager = getFragmentManager();
-                ComConquistaFragment cc = new ComConquistaFragment();
-                manager.beginTransaction().replace(R.id.contentContainer, cc, cc.getTag()).commit();
+
+                final StorageReference filepath = mStorage.child("Fotos/Conquista/" + new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario))).child(String.valueOf(getIdFotoConquista()));
+                progressDoalog = new ProgressDialog(ctx);
+                progressDoalog.setMax(100);
+                progressDoalog.setMessage("Upload da foto");
+                progressDoalog.setTitle("Fazendo o upload da foto");
+                progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                progressDoalog.show();
+
+                filepath.putFile(uriConquista).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
+//                    Toast.makeText(ctx, "Download: "+progress+"% ", Toast.LENGTH_LONG).show();
+                        System.out.println("Upload is " + progress + "% done");
+                        progressDoalog.setProgress((int) progress);
+                        progressDoalog.setCancelable(false);
+                        if (progress == 100) {
+                            FirebaseHelper firebaseHelper = new FirebaseHelper();
+                            Uri testeUri = taskSnapshot.getMetadata().getDownloadUrl();
+                            firebaseHelper.armazenar(ctx, String.valueOf(testeUri), String.valueOf(R.string.foto_conquista));
+                            Picasso.with(ctx).load(testeUri).into(fotoConquista);
+
+                            Conquista conquista = new Conquista(nomeConquista.getText().toString(),
+                                    nomeClubeConquista.getText().toString(),
+                                    anoConquista.getText().toString(),
+                                    new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.foto_conquista)));
+                            ConquistaService conquistaService = new ConquistaService();
+                            String id = new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario));
+                            conquistaService.addConquista(conquista, "Jogadores/"+ id + "/Conquistas", ctx);
+                            android.app.FragmentManager manager = getFragmentManager();
+                            ComConquistaFragment cc = new ComConquistaFragment();
+                            manager.beginTransaction().replace(R.id.contentContainer, cc, cc.getTag()).commit();
+
+                            progressDoalog.dismiss();
+                        }
+                    }
+                }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onPaused(UploadTask.TaskSnapshot taskSnapshot) {
+                        System.out.println("Upload is paused");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                    }
+                }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Handle successful uploads on complete
+                        Uri downloadUrl = taskSnapshot.getMetadata().getDownloadUrl();
+
+                    }
+                });
             }
         });
         return view;
@@ -114,48 +161,9 @@ public class AddConquistaFragment extends Fragment {
         if ((requestCode == GALLERY_INTENT && resultCode == RESULT_OK) || requestCode == 2) {
 
             final Uri uri = data.getData();
-            final StorageReference filepath = mStorage.child("Fotos/Conquista").child(String.valueOf(new FirebaseHelper().recuperar(ctx, "IDUsuario"))+"-"+data.getScheme());
-            progressDoalog = new ProgressDialog(ctx);
-            progressDoalog.setMax(100);
-            progressDoalog.setMessage("Upload da foto");
-            progressDoalog.setTitle("Fazendo o upload da foto");
-            progressDoalog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            progressDoalog.show();
-
-            filepath.putFile(uri).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                    double progress = (100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-//                    Toast.makeText(ctx, "Download: "+progress+"% ", Toast.LENGTH_LONG).show();
-                    System.out.println("Upload is " + progress + "% done");
-                    progressDoalog.setProgress((int) progress);
-                    progressDoalog.setCancelable(false);
-                    if (progress == 100) {
-                        FirebaseHelper firebaseHelper = new FirebaseHelper();
-                        Uri testeUri = taskSnapshot.getMetadata().getDownloadUrl();
-                        firebaseHelper.armazenar(ctx, String.valueOf(testeUri), String.valueOf(R.string.foto_conquista));
-                        Picasso.with(ctx).load(testeUri).into(fotoConquista);
-                        progressDoalog.dismiss();
-                    }
-                }
-            }).addOnPausedListener(new OnPausedListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onPaused(UploadTask.TaskSnapshot taskSnapshot) {
-                    System.out.println("Upload is paused");
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    // Handle unsuccessful uploads
-                }
-            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    // Handle successful uploads on complete
-                    Uri downloadUrl = taskSnapshot.getMetadata().getDownloadUrl();
-
-                }
-            });
+            //new FirebaseHelper().armazenar(ctx, uri.toString(), String.valueOf(R.string.uri_foto));
+            uriConquista = uri;
+            fotoConquista.setImageURI(uri);
         }
     }
 
@@ -164,6 +172,15 @@ public class AddConquistaFragment extends Fragment {
 //        if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
         startActivityForResult(takeVideoIntent, 2);
 //        }
+    }
+
+    private int getIdFotoConquista(){
+        FirebaseHelper firebaseHelper = new FirebaseHelper();
+        String id = firebaseHelper.recuperar(ctx, String.valueOf(R.string.id_Foto_Conquista));
+        firebaseHelper.armazenar(ctx, String.valueOf(Integer.parseInt(id) + 1), String.valueOf(R.string.id_Foto_Conquista));
+        int idFoto = Integer.parseInt(id);
+        Log.e("USUARIOOO ver o idFoto = ", String.valueOf(idFoto));
+        return idFoto + 1;
     }
 
 }

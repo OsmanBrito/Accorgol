@@ -54,7 +54,7 @@ public class Jogador_Perfil extends AppCompatActivity{
                     manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
                 }
                 else {
-                   if (new FirebaseHelper().recuperar(getApplicationContext(), "TemConquista").equals("Tem")){
+                   if (new FirebaseHelper().recuperar(getApplicationContext(), String.valueOf(R.string.tem_conquista)).equals("Tem")){
                        ComConquistaFragment semConquistaFragment = new ComConquistaFragment();
                        manager.beginTransaction().replace(R.id.contentContainer, semConquistaFragment, semConquistaFragment.getTag()).commit();
 

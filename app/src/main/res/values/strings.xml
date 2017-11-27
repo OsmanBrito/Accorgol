@@ -5,6 +5,8 @@
     <string name="foto_perfil">fotoPerfil</string>
     <string name="video_perfil">VideoPerfil</string>
     <string name="tem_conquista">TemConquista</string>
+    <string name="uri_foto">uriFotoConquista</string>
+    <string name="id_Foto_Conquista">idFotoConquista</string>
 
     <string-array name="estadosBR">
         <item>AC</item>

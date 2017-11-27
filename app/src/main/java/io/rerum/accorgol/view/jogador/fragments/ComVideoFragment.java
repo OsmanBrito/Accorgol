@@ -39,7 +39,7 @@ public class ComVideoFragment extends Fragment {
         play = (ImageButton) view.findViewById(R.id.playVideoPerfil);
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference mStorage = storage.getReference();
-        StorageReference storageReference = mStorage.child("Videos/"+new FirebaseHelper().recuperar(view.getContext(), "IDUsuario"));
+        StorageReference storageReference = mStorage.child("Videos/"+new FirebaseHelper().recuperar(view.getContext(), String.valueOf(R.string.id_Usuario)));
         storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {

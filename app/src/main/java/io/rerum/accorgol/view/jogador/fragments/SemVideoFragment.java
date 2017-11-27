@@ -90,7 +90,7 @@ public class SemVideoFragment extends Fragment {
         if ( (requestCode == GALLERY_INTENT && resultCode == RESULT_OK) || requestCode == REQUEST_VIDEO_CAPTURE){
 
             final Uri uri = data.getData();
-            StorageReference filepath = mStorage.child("Videos").child(String.valueOf(new FirebaseHelper().recuperar(ctx, "IDUsuario")));
+            StorageReference filepath = mStorage.child("Videos").child(String.valueOf(new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario))));
             progressDoalog = new ProgressDialog(ctx);
             progressDoalog.setMax(100);
             progressDoalog.setMessage("Upload do vídeo");
