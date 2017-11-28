@@ -117,10 +117,10 @@ public class AddConquistaFragment extends Fragment {
                             firebaseHelper.armazenar(ctx, String.valueOf(testeUri), String.valueOf(R.string.foto_conquista));
                             Picasso.with(ctx).load(testeUri).into(fotoConquista);
 
-                            Conquista conquista = new Conquista(nomeConquista.getText().toString(),
-                                    nomeClubeConquista.getText().toString(),
+                            Conquista conquista = new Conquista( nomeConquista.getText().toString(),
                                     anoConquista.getText().toString(),
-                                    new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.foto_conquista)));
+                                    new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.foto_conquista)),
+                                    nomeClubeConquista.getText().toString());
                             ConquistaService conquistaService = new ConquistaService();
                             String id = new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario));
                             conquistaService.addConquista(conquista, "Jogadores/"+ id + "/Conquistas", ctx);

@@ -9,21 +9,25 @@ public class Conquista {
     private String nomeConquista;
     private String nomeClube;
     private String ano;
-    private String URIFoto;
+    private String urifoto;
 
-    public Conquista(String nomeConquista, String nomeClube, String ano, String URIFoto) {
+
+    public Conquista(String nomeConquista, String ano, String urifoto, String nomeClube) {
         this.nomeConquista = nomeConquista;
         this.nomeClube = nomeClube;
         this.ano = ano;
-        this.URIFoto = URIFoto;
+        this.urifoto = urifoto;
+    }
+
+    public Conquista() {
     }
 
     public String getURIFoto() {
-        return URIFoto;
+        return urifoto;
     }
 
     public void setURIFoto(String URIFoto) {
-        this.URIFoto = URIFoto;
+        this.urifoto = URIFoto;
     }
 
     public String getNomeConquista() {
