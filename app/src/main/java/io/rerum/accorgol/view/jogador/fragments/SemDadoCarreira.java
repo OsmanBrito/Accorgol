@@ -3,12 +3,9 @@ package io.rerum.accorgol.view.jogador.fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
@@ -27,7 +24,9 @@ public class SemDadoCarreira extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(), "conquista", Toast.LENGTH_LONG).show();
+                android.app.FragmentManager manager = getFragmentManager();
+                AddCarreiraFragment cc = new AddCarreiraFragment();
+                manager.beginTransaction().replace(R.id.contentContainer, cc, cc.getTag()).commit();
             }
         });
         return view;

@@ -38,7 +38,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                android:id="@+id/nomeClube"
+                android:id="@+id/nomeClubeAddCarreira"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Aqui o nome" />
@@ -223,7 +223,7 @@
         </android.support.design.widget.TextInputLayout>
 
         <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/bootstrapButton3"
+            android:id="@+id/addCarreira"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginEnd="18dp"

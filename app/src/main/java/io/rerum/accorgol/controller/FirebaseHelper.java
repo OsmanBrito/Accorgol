@@ -69,7 +69,7 @@ public class FirebaseHelper implements Serializable{
     public String recuperar(Context context, String nameFile){
         SharedPreferences settings = context.getSharedPreferences(PREFS_NAME, 0);
         String result = settings.getString(nameFile, "");
-        Log.e("USUARIO RESULT RECUPERAR!!!", result);
+        Log.e("USUARIO RESULT RECUPERAR!!! "+nameFile, result);
 
         return result;
     }
