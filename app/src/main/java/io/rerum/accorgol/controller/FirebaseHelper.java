@@ -2,6 +2,7 @@ package io.rerum.accorgol.controller;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.util.Log;
 
 import com.google.firebase.database.DataSnapshot;
@@ -11,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.Serializable;
+import java.net.URI;
 
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.dao.UsuarioDAO;
@@ -73,4 +75,22 @@ public class FirebaseHelper implements Serializable{
 
         return result;
     }
+
+    public void attPerfilJogador(final String root, final String value){
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/"+root);
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.e("USUARIOOOO VER A KEY E O VALUE = ", root);
+                mDatabase.child(root).setValue(value);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e("COEEEE ERRROOOO", databaseError.toString());
+            }
+        });
+    }
+
 }

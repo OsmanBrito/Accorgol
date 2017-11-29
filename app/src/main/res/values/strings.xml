@@ -8,6 +8,7 @@
     <string name="uri_foto">uriFotoConquista</string>
     <string name="id_Foto_Conquista">idFotoConquista</string>
     <string name="tem_carreira">TemCarreira</string>
+    <string name="id_jogador_que_sera_visualizado">idJogador</string>
 
     <string-array name="estadosBR">
         <item>AC</item>

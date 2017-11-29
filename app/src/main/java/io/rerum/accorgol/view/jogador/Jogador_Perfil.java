@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +15,7 @@ import com.roughike.bottombar.OnTabSelectListener;
 
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.controller.FirebaseHelper;
+import io.rerum.accorgol.view.VisualizarPerfilJogador;
 import io.rerum.accorgol.view.jogador.fragments.ComCarreiraFragment;
 import io.rerum.accorgol.view.jogador.fragments.ComConquistaFragment;
 import io.rerum.accorgol.view.jogador.fragments.JogadorPerfilFragment;
@@ -77,42 +80,22 @@ public class Jogador_Perfil extends AppCompatActivity{
     }
 
     @Override
-    protected void onStart() {
-        super.onStart();
-//        verifyDB();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
-//    public void verifyDB(){
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//        UsuarioDAO dao = new UsuarioDAO(this);
-//        int id = dao.getIDBanco();
-//        DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Jogadores/"+id);
-//        myRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//
-//                if (dataSnapshot.child("Carreira").getKey().equals("Carreira")){
-//                    flag = true;
-//                    AddCarreiraFragment carreiraFragment = new AddCarreiraFragment();
-//                    android.app.FragmentManager manager = getFragmentManager();
-//                    manager.beginTransaction().replace(R.id.contentContainer, carreiraFragment, carreiraFragment.getTag()).commit();
-//                } else {
-//                    Log.e("JOGADOR_PERFIL", dataSnapshot.getKey());
-//                }
-////                nome.setText(dataSnapshot.child("nomeCompleto").getValue(String.class));
-////                dataNascimento.setText(dataSnapshot.child("anoNascimento").getValue(String.class));
-////                posicao.setText(dataSnapshot.child("posicao").getValue(String.class));
-////                pedominante.setText(dataSnapshot.child("peDominante").getValue(String.class));
-////                rg.setText(dataSnapshot.child("rg").getValue(String.class));
-//            }
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//        });
-//    }
-
-    public void pesquisarEmpresario(View view) {
-        Intent myIntent = new Intent(this, PesquisarEmpresario.class);
-        startActivity(myIntent);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.add_item) {
+            //check if any items to add
+            Intent intent = new Intent(this, VisualizarPerfilJogador.class);
+            String id = new FirebaseHelper().recuperar(this, String.valueOf(R.string.id_Usuario));
+            new FirebaseHelper().armazenar(this, id, String.valueOf(R.string.id_jogador_que_sera_visualizado));
+            startActivity(intent);
+        }
+        return true;
     }
 }

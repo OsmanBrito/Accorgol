@@ -90,7 +90,8 @@ public class SemVideoFragment extends Fragment {
         if ( (requestCode == GALLERY_INTENT && resultCode == RESULT_OK) || requestCode == REQUEST_VIDEO_CAPTURE){
 
             final Uri uri = data.getData();
-            StorageReference filepath = mStorage.child("Videos").child(String.valueOf(new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario))));
+            final String id = new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario));
+            StorageReference filepath = mStorage.child("Videos").child(id);
             progressDoalog = new ProgressDialog(ctx);
             progressDoalog.setMax(100);
             progressDoalog.setMessage("Upload do vídeo");
@@ -113,6 +114,7 @@ public class SemVideoFragment extends Fragment {
                         UsuarioDAO dao = new UsuarioDAO(ctx);
                         dao.attVideoUsuario(true);
                         progressDoalog.dismiss();
+                        new FirebaseHelper().attPerfilJogador("Jogadores/"+id+"/urivideo", String.valueOf(taskSnapshot.getDownloadUrl()));
                         android.app.FragmentManager manager = getFragmentManager();
                         ComVideoFragment comVideoFragment = new ComVideoFragment();
                         manager.beginTransaction().replace(R.id.contentContainervideoJogador, comVideoFragment, comVideoFragment.getTag()).commit();

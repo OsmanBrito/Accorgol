@@ -76,20 +76,32 @@ public class AddCarreiraFragment extends Fragment {
             public void onClick(View view) {
                 String nome = nomeClube.getText().toString();
                 String de = deDataNoClube.getText().toString();
+                String ate = ateDataNoClube.getText().toString();
                 String posicao = posicaoNoClube.getSelectedItem().toString();
                 int partidas = Integer.parseInt(qndtPartidasNoClube.getText().toString());
                 int gols = Integer.parseInt(qntdGols.getText().toString());
                 int assistencias = Integer.parseInt(qntdAssistencias.getText().toString());
                 int  sofridos = Integer.parseInt(golSofridos.getText().toString());
+                String id = new FirebaseHelper().recuperar(view.getContext(), String.valueOf(R.string.id_Usuario));
                 //se o jogador for goleiro ou zagueiro e esta atuando no clube em questão é instanciado o construtor dele.
                 if (posicao.equals("Goleiro") || posicao.equals("Zagueiro") && clubeAtual.isChecked()) {
                     Carreira carreira = new Carreira(nome, de, true, posicao, partidas, gols, assistencias, sofridos);
-                    String id = new FirebaseHelper().recuperar(view.getContext(), String.valueOf(R.string.id_Usuario));
-                    new CarreiraService().addCarreira(carreira, "Jogadores/"+ id + "/Carreira/", view.getContext());
-                    android.app.FragmentManager manager = getFragmentManager();
-                    ComCarreiraFragment cc = new ComCarreiraFragment();
-                    manager.beginTransaction().replace(R.id.contentContainer, cc, cc.getTag()).commit();
+                    new CarreiraService().addCarreira(carreira, "Jogadores/" + id + "/Carreira/", view.getContext());
+                } else if (posicao.equals("Goleiro") || posicao.equals("Zagueiro") && !clubeAtual.isChecked()) {
+                    Carreira carreira = new Carreira(nome, de, ate, posicao, partidas, gols, assistencias, sofridos);
+                    new CarreiraService().addCarreira(carreira, "Jogadores/" + id + "/Carreira/", view.getContext());
+                } else {
+                    if (clubeAtual.isChecked()){
+                        Carreira carreira = new Carreira(nome, de, true, posicao, partidas, gols, assistencias);
+                        new CarreiraService().addCarreira(carreira, "Jogadores/" + id + "/Carreira/", view.getContext());
+                    } else {
+                        Carreira carreira = new Carreira(nome, de, ate, posicao, partidas, gols, assistencias);
+                        new CarreiraService().addCarreira(carreira, "Jogadores/" + id + "/Carreira/", view.getContext());
+                    }
                 }
+                android.app.FragmentManager manager = getFragmentManager();
+                ComCarreiraFragment cc = new ComCarreiraFragment();
+                manager.beginTransaction().replace(R.id.contentContainer, cc, cc.getTag()).commit();
             }
         });
         return view;

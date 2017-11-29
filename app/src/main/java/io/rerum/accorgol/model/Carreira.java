@@ -57,8 +57,7 @@ public class Carreira {
     }
 
     /**
-     * Este construtor é para os jogadores das posicoes: goleiro e zagueiro, que tem uma data de inicio no clube e ainda esta atuando por ele.
-     * @param nomeClubeCarreira
+     * Este construtor é para os jogadores das posicoes: goleiro e zagueiro, que tem uma data de inicio e fim.
      * @param de
      * @param ate
      * @param posicaoClubeCarreira

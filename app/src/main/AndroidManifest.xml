@@ -15,7 +15,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.empresario.Empresario_form"/>
+        <activity android:name=".view.empresario.Empresario_form"/> <activity android:name=".view.VisualizarPerfilJogador"/>
         <activity android:name=".view.jogador.Jogador_Form"/> <activity android:name=".view.empresario.AddOportunidade"/>
         <activity android:name=".view.MainActivity"/> <activity android:name=".view.empresario.ResultadoBuscaDeTalentos"/> <activity android:name=".view.empresario.VerPerfilJogador"/>
         <activity android:name=".view.empresario.Empresario_Perfil"/> <activity android:name=".view.empresario.ProcurarTalentos"/> <activity android:name=".view.empresario.GerenciarOportunidades"/>

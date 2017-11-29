@@ -16,8 +16,5 @@ public class JogadorService {
         firebaseHelper.verifyIdInDataBase("Jogadores", ctx, null, jogador);
     }
 
-    public void alterarJogador(String nome, String email, String posicao, String anoNascimento, String peDominante, Context ctx){
-
-    }
 
 }

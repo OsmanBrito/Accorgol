@@ -18,14 +18,9 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnPausedListener;
 import com.google.firebase.storage.OnProgressListener;
@@ -69,7 +64,7 @@ public class JogadorPerfilFragment extends Fragment {
             manager.beginTransaction().replace(R.id.contentContainervideoJogador, semVideoFragment, semVideoFragment.getTag()).commit();
         }
         fotoButton = (ImageButton) view.findViewById(R.id.addFotoPerfil);
-        fotoPerfil = (ImageView) view.findViewById(R.id.fotoPerfilJogador);
+        fotoPerfil = (ImageView) view.findViewById(R.id.visualizarFotoDadosPessoais);
         fotoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,7 +121,9 @@ public class JogadorPerfilFragment extends Fragment {
                         progressDoalog.dismiss();
                         FirebaseHelper firebaseHelper = new FirebaseHelper();
                         Uri testeUri = taskSnapshot.getMetadata().getDownloadUrl();
+                        String id = firebaseHelper.recuperar(ctx, String.valueOf(R.string.id_Usuario));
                         firebaseHelper.armazenar(ctx, String.valueOf(testeUri), String.valueOf(R.string.foto_perfil));
+                        firebaseHelper.attPerfilJogador("/Jogadores/"+id+"/urifoto", String.valueOf(testeUri));
                         Picasso.with(ctx).load(testeUri).into(fotoPerfil);
                     }
                 }

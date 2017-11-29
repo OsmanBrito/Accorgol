@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="50sp">
+        android:paddingBottom="20sp">
 
         <RelativeLayout
             android:id="@+id/relativeLayout3"
@@ -20,35 +20,19 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:scaleType="centerCrop"
             android:id="@+id/visualizarFotoDadosPessoais"
             android:layout_width="121dp"
             android:layout_height="138dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="80dp"
+            android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/addFotoPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="80dp"
-            android:background="@color/colorPrimary"
-            android:src="@android:drawable/ic_menu_camera"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.805"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
-            android:textColor="#fff"
             android:id="@+id/textView95"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +40,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Dados pessoais"
+            android:textColor="#fff"
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -170,14 +155,5 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/textView104"
             app:layout_constraintTop_toBottomOf="@+id/textView102" />
-
-        <FrameLayout
-            android:id="@+id/contentContainervideoJogador"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView104" />
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
