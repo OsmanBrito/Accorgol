@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="330dp"
+    android:orientation="vertical"
+    android:tag="cards main container"
+    tools:layout_editor_absoluteY="81dp">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_perfil_resultado"
+        android:layout_width="0dp"
+        android:layout_height="290dp"
+        android:layout_marginBottom="2dp"
+        card_view:cardBackgroundColor="#fff"
+        card_view:cardCornerRadius="10dp"
+        card_view:cardElevation="5dp"
+        card_view:cardUseCompatPadding="true"
+        card_view:layout_constraintBottom_toBottomOf="parent"
+        card_view:layout_constraintEnd_toEndOf="parent"
+        card_view:layout_constraintStart_toStartOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/cardFotoPerfil"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="0dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="1dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_launcher"
+                android:tag="image_tag"
+                card_view:layout_constraintBottom_toTopOf="@+id/cardNome"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:textSize="20dp"
+                android:id="@+id/cardNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:text="Nome Longo da Silva"
+                card_view:layout_constraintBaseline_toBaselineOf="@+id/cardAno"
+                card_view:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:textSize="20dp"
+                android:id="@+id/cardAno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="61dp"
+                android:layout_marginStart="8dp"
+                android:text="Idade"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintStart_toEndOf="@+id/cardNome" />
+
+            <TextView
+                android:textSize="20dp"
+                android:id="@+id/cardPosicao"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
+                android:text="Posição"
+                card_view:layout_constraintBottom_toBottomOf="@+id/cardPeDominante"
+                card_view:layout_constraintStart_toStartOf="parent"
+                card_view:layout_constraintTop_toTopOf="@+id/cardPeDominante" />
+
+            <TextView
+                android:textSize="20dp"
+                android:id="@+id/cardPeDominante"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="17dp"
+                android:text="Pé Dominante"
+                card_view:layout_constraintBottom_toBottomOf="parent"
+                card_view:layout_constraintEnd_toEndOf="parent"
+                card_view:layout_constraintTop_toBottomOf="@+id/cardNome" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.constraint.ConstraintLayout>

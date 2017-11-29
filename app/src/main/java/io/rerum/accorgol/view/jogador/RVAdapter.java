@@ -28,10 +28,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.JogadorHolder> {
 
         JogadorHolder(View itemView) {
             super(itemView);
-            cv = (CardView)itemView.findViewById(R.id.cardView);
-            fotoJogador = (ImageView)itemView.findViewById(R.id.fotoJogadorCard);
-            nomeJogador = (TextView)itemView.findViewById(R.id.nomeJogadorcard);
-            idadeJogador = (TextView)itemView.findViewById(R.id.idadeJogadorCard);
+//            cv = (CardView)itemView.findViewById(R.id.cardView);
+//            fotoJogador = (ImageView)itemView.findViewById(R.id.fotoJogadorCard);
+//            nomeJogador = (TextView)itemView.findViewById(R.id.nomeJogadorcard);
+//            idadeJogador = (TextView)itemView.findViewById(R.id.idadeJogadorCard);
         }
     }
 
@@ -49,7 +49,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.JogadorHolder> {
 
     @Override
     public void onBindViewHolder(JogadorHolder holder, int position) {
-        holder.fotoJogador.setImageResource(jogadores.get(position).getFotoJogador());
+//        holder.fotoJogador.setImageResource(jogadores.get(position).getFotoJogador());
         holder.idadeJogador.setText(jogadores.get(position).getAnoNascimento());
         holder.nomeJogador.setText(jogadores.get(position).getNomeCompleto());
     }

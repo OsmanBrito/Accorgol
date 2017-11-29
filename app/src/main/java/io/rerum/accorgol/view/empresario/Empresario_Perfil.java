@@ -13,6 +13,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import io.rerum.accorgol.R;
+import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.dao.UsuarioDAO;
 
 /**
@@ -70,8 +71,7 @@ public class Empresario_Perfil extends AppCompatActivity {
     public void buscaEmpresarioBanco(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        UsuarioDAO dao = new UsuarioDAO(this);
-        int id = dao.getIDBanco();
+        String id = new FirebaseHelper().recuperar(this, String.valueOf(R.string.id_Usuario));
 
         DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Empresarios/"+id);
         myRef.addValueEventListener(new ValueEventListener() {

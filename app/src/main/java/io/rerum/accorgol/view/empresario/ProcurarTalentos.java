@@ -7,7 +7,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.beardedhen.androidbootstrap.BootstrapEditText;
+
 import io.rerum.accorgol.R;
+import io.rerum.accorgol.controller.EmpresarioService;
+import io.rerum.accorgol.model.Jogador;
 import io.rerum.accorgol.view.jogador.Jogador_Perfil;
 
 /**
@@ -18,9 +22,7 @@ public class ProcurarTalentos extends AppCompatActivity {
 
     private Spinner peDominante;
     private Spinner posicao;
-    private Spinner altura;
-    private Spinner estado;
-    private EditText cidade;
+    private BootstrapEditText ano;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +31,18 @@ public class ProcurarTalentos extends AppCompatActivity {
 
         peDominante = (Spinner) findViewById(R.id.peDominanteBuscar);
         posicao = (Spinner) findViewById(R.id.posicaoBuscar);
-        altura = (Spinner) findViewById(R.id.alturaBuscar);
-        estado = (Spinner) findViewById(R.id.estadoBuscar);
-        cidade = (EditText) findViewById(R.id.cidadeBuscar);
+        ano = (BootstrapEditText) findViewById(R.id.buscarANo);
 
     }
 
     public void BuscarTalentos(View view) {
         Intent myIntent = new Intent(this, ResultadoBuscaDeTalentos.class);
-        myIntent.putExtra("peDominante", this.peDominante.getSelectedItem().toString());
-        myIntent.putExtra("posicao", this.posicao.getSelectedItem().toString());
-        myIntent.putExtra("altura", this.altura.getSelectedItem().toString());
-        myIntent.putExtra("estado", this.estado.getSelectedItem().toString());
-        myIntent.putExtra("cidade", this.cidade.getText().toString());
+        String buscarPosicao = this.posicao.getSelectedItem().toString();
+        String buscarPe = this.peDominante.getSelectedItem().toString();
+        Jogador jogador = new Jogador(buscarPosicao, buscarPe, ano.getText().toString());
+        myIntent.putExtra("posicao", buscarPosicao);
+        myIntent.putExtra("pe", buscarPe);
+        myIntent.putExtra("ano", ano.getText().toString());
         startActivity(myIntent);
     }
 }

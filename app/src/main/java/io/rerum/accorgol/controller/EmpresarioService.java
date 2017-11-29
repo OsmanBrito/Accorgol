@@ -2,6 +2,7 @@ package io.rerum.accorgol.controller;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -10,6 +11,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import io.rerum.accorgol.model.Empresario;
+import io.rerum.accorgol.model.Jogador;
+import io.rerum.accorgol.view.FirebaseCreate;
+import io.rerum.accorgol.view.empresario.ProcurarTalentos;
 
 /**
  * Created by osman on 26/09/2017.
@@ -65,6 +69,5 @@ public class EmpresarioService{
     }
 
     public void alterarPerfilEmpresario(Empresario empresario, Context ctx) {
-
     }
 }

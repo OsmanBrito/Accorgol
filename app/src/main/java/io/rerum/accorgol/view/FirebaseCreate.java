@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.dao.UsuarioDAO;
+import io.rerum.accorgol.view.empresario.EmpresarioHome;
 import io.rerum.accorgol.view.jogador.Jogador_Perfil;
 
 /**
@@ -56,7 +57,7 @@ public class FirebaseCreate extends AppCompatActivity{
         if(usuarioDAO.getIDBanco()  !=  0){
             Log.e("COEEEE", "TEM CADSATRO");
 //            aqui sera setado o id do usuario para poder colocar nas URLs do fireabse, pegando fotos e videos DO USUARIO
-            Intent intent = new Intent(this, Jogador_Perfil.class);
+            Intent intent = new Intent(this, EmpresarioHome .class);
             startActivity(intent);
         } else {
             Log.e("COEEEE", "Nao tem cadastro!!");

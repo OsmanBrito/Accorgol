@@ -2,12 +2,14 @@ package io.rerum.accorgol.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 
 import io.rerum.accorgol.R;
+import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.view.jogador.fragments.ComConquistaFragment;
 import io.rerum.accorgol.view.jogador.fragments.JogadorPerfilFragment;
 import io.rerum.accorgol.view.jogador.fragments.SemConquistaFragment;
@@ -43,6 +45,12 @@ public class VisualizarPerfilJogador extends AppCompatActivity {
         manager.beginTransaction().replace(R.id.contentVideoJogador, vv, vv.getTag()).commit();
         manager.beginTransaction().replace(R.id.contentCarreiraJogador, vc, vc.getTag()).commit();
         manager.beginTransaction().replace(R.id.contentConquistasJogador, cc, cc.getTag()).commit();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        new FirebaseHelper().armazenar(this, "", String.valueOf(R.string.id_jogador_que_sera_visualizado));
+        Log.e("USUARIOOOOOOOOOOOOOOOOOOOOO ZEREI O HELPER IDJOGADORQUESERAVISUADO", "certo!");
     }
 }

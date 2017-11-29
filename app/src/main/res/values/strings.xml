@@ -50,8 +50,8 @@
     </string-array>
 
     <string-array name="pe">
-        <item>Direito</item>
-        <item>Esquerdo</item>
+        <item>Destro</item>
+        <item>Canhoto</item>
     </string-array>
 
     <string-array name="altura">

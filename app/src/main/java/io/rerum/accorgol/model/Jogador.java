@@ -1,5 +1,9 @@
 package io.rerum.accorgol.model;
 
+import com.beardedhen.androidbootstrap.BootstrapEditText;
+
+import java.util.ArrayList;
+
 /**
  * Created by osman on 26/09/2017.
  */
@@ -8,7 +12,7 @@ public class Jogador {
 
     //: Nome completo, posição, pé dominante, altura, peso, e-mail, RG, ano de nascimento, endereço, bairro, cidade, estado, CEP, celular, senha, confirmar senha.
 
-    private int idJogador;
+    private String idJogador;
     private String nomeCompleto;
     private String posicao;
     private String peDominante;
@@ -22,7 +26,10 @@ public class Jogador {
     private String cidade;
     private String estado;
     private String celular;
-    private int fotoJogador;
+    private String fotoJogador;
+    private String videojogador;
+    private ArrayList<Conquista> conquista;
+    private ArrayList<Conquista> carreira;
 
     public Jogador(String nomeCompleto, String posicao, String peDominante, String altura, String peso, String email, String RG, String senha, String anoNascimento, String bairro, String cidade, String estado, String celular) {
         this.nomeCompleto = nomeCompleto;
@@ -50,11 +57,44 @@ public class Jogador {
         this.anoNascimento = anoNascimento;
     }
 
-    public int getIdJogador() {
+    public Jogador(String posi, String buscarPe, String buscarAlturathis, String buscarEstado, String buscarCidade) {
+    }
+
+    public Jogador(String posicao, String pe, String ano) {
+        this.posicao = posicao;
+        this.peDominante = pe;
+        this.anoNascimento = ano;
+    }
+
+    public ArrayList<Conquista> getConquista() {
+        return conquista;
+    }
+
+    public void setConquista(ArrayList<Conquista> conquista) {
+        this.conquista = conquista;
+    }
+
+    public ArrayList<Conquista> getCarreira() {
+        return carreira;
+    }
+
+    public void setCarreira(ArrayList<Conquista> carreira) {
+        this.carreira = carreira;
+    }
+
+    public String getVideojogador() {
+        return videojogador;
+    }
+
+    public void setVideojogador(String videojogador) {
+        this.videojogador = videojogador;
+    }
+
+    public String getIdJogador() {
         return idJogador;
     }
 
-    public void setIdJogador(int idJogador) {
+    public void setIdJogador(String idJogador) {
         this.idJogador = idJogador;
     }
 
@@ -162,11 +202,11 @@ public class Jogador {
         this.celular = celular;
     }
 
-    public int getFotoJogador() {
+    public String getFotoJogador() {
         return fotoJogador;
     }
 
-    public void setFotoJogador(int fotoJogador) {
+    public void setFotoJogador(String fotoJogador) {
         this.fotoJogador = fotoJogador;
     }
 }
