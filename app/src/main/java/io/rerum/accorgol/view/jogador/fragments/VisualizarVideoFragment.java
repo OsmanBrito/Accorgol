@@ -38,15 +38,22 @@ public class VisualizarVideoFragment extends Fragment{
         DatabaseReference myRef = database.getReferenceFromUrl("https://accorgol-5000e.firebaseio.com/Jogadores/"+id);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                videoJogador.setVideoURI(Uri.parse(dataSnapshot.child("urivideo").getValue(String.class)));
-                playVideoPerfil.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        videoJogador.start();
-                        view.setVisibility(View.GONE);
-                    }
-                });
+            public void onDataChange(DataSnapshot dataSnaphot) {
+                if (dataSnaphot.child("urivideo").getValue(String.class) != null) {
+                    videoJogador.setVideoURI(Uri.parse(dataSnaphot.child("urivideo").getValue(String.class)));
+                    playVideoPerfil.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            videoJogador.start();
+                            view.setVisibility(View.GONE);
+                        }
+                    });
+                } else {
+                    android.app.FragmentManager manager = getFragmentManager();
+                    VisualizarSemVideoFragment sv = new VisualizarSemVideoFragment();
+
+                    manager.beginTransaction().replace(R.id.contentVideoJogador, sv, sv.getTag()).commit();
+                }
 //                Picasso.with(view.getContext()).load(dataSnapshot.child("urifoto").getValue(String.class)).into(foto);
             }
 

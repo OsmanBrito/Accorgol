@@ -58,7 +58,12 @@ public class VisualizarPerfilDadosPessoaisFragment extends Fragment {
                 pe.setText(dataSnapshot.child("peDominante").getValue(String.class));
                 ano.setText(dataSnapshot.child("anoNascimento").getValue(String.class));
                 rg.setText(dataSnapshot.child("rg").getValue(String.class));
-                Picasso.with(view.getContext()).load(dataSnapshot.child("urifoto").getValue(String.class)).into(foto);
+
+                if (dataSnapshot.child("urifoto").getValue(String.class) != null){
+                    Picasso.with(view.getContext()).load(dataSnapshot.child("urifoto").getValue(String.class)).into(foto);
+                } else {
+                    Picasso.with(view.getContext()).load(R.mipmap.ic_launcher).into(foto);
+                }
             }
 
             @Override
