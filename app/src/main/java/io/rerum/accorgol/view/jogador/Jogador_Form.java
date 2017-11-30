@@ -34,8 +34,6 @@ public class Jogador_Form extends AppCompatActivity{
     private RadioGroup radioGroup;
     private EditText RG;
     private Spinner posicao;
-    private String email;
-    private String senha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +46,6 @@ public class Jogador_Form extends AppCompatActivity{
         radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         RG = (EditText) findViewById(R.id.cadastroRGJogador);
         posicao = (Spinner) findViewById(R.id.posicao);
-
-        Intent intent = getIntent();
-        this.email = intent.getStringExtra("email");
-        this.senha = intent.getStringExtra("senha");
     }
 
     public void JogadorCadastrado(View view) {
@@ -69,11 +63,12 @@ public class Jogador_Form extends AppCompatActivity{
         String RG = this.RG.getText().toString();
         String peDominante = this.peDominante.getText().toString();
 
-        JogadorService jogadorService = new JogadorService();
-        jogadorService.cadastrarJogador(nome, email, RG, senha, posicao, anoNascimento, peDominante, this);
-        Intent myIntent = new Intent(this, Jogador_Perfil.class);
+        Intent myIntent = new Intent(this, Jogador_Form_Segund.class);
+        myIntent.putExtra("nome", nome);
+        myIntent.putExtra("posicao", posicao);
+        myIntent.putExtra("anoNascimento", anoNascimento);
+        myIntent.putExtra("RG", RG);
+        myIntent.putExtra("peDominante", peDominante);
         startActivity(myIntent);
-
-
     }
 }

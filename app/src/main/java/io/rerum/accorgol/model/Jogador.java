@@ -17,39 +17,29 @@ public class Jogador {
     private String posicao;
     private String peDominante;
     private String altura;
-    private String peso;
-    private String email;
     private String RG;
-    private String senha;
-    private String anoNascimento;;
-    private String bairro;
+    private String anoNascimento;
     private String cidade;
     private String estado;
     private String celular;
-    private String fotoJogador;
-    private String videojogador;
+    private String urifoto;
+    private String urivideo;
     private ArrayList<Conquista> conquista;
     private ArrayList<Conquista> carreira;
 
-    public Jogador(String nomeCompleto, String posicao, String peDominante, String altura, String peso, String email, String RG, String senha, String anoNascimento, String bairro, String cidade, String estado, String celular) {
+    public Jogador(String nomeCompleto, String posicao, String peDominante, String altura, String RG, String anoNascimento, String cidade, String estado, String celular) {
         this.nomeCompleto = nomeCompleto;
         this.posicao = posicao;
         this.peDominante = peDominante;
         this.altura = altura;
-        this.peso = peso;
-        this.email = email;
         this.RG = RG;
-        this.senha = senha;
         this.anoNascimento = anoNascimento;
-        this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
         this.celular = celular;
     }
 
-    public Jogador(String email, String senha, String nome, String RG,String posicao, String peDominante, String anoNascimento) {
-        this.email = email;
-        this.senha = senha;
+    public Jogador(String nome, String RG,String posicao, String peDominante, String anoNascimento) {
         this.nomeCompleto = nome;
         this.RG = RG;
         this.posicao = posicao;
@@ -57,8 +47,6 @@ public class Jogador {
         this.anoNascimento = anoNascimento;
     }
 
-    public Jogador(String posi, String buscarPe, String buscarAlturathis, String buscarEstado, String buscarCidade) {
-    }
 
     public Jogador(String posicao, String pe, String ano) {
         this.posicao = posicao;
@@ -83,11 +71,11 @@ public class Jogador {
     }
 
     public String getVideojogador() {
-        return videojogador;
+        return urivideo;
     }
 
     public void setVideojogador(String videojogador) {
-        this.videojogador = videojogador;
+        this.urivideo = videojogador;
     }
 
     public String getIdJogador() {
@@ -130,22 +118,6 @@ public class Jogador {
         this.altura = altura;
     }
 
-    public String getPeso() {
-        return peso;
-    }
-
-    public void setPeso(String peso) {
-        this.peso = peso;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getRG() {
         return RG;
     }
@@ -154,28 +126,12 @@ public class Jogador {
         this.RG = RG;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public String getAnoNascimento() {
         return anoNascimento;
     }
 
     public void setAnoNascimento(String anoNascimento) {
         this.anoNascimento = anoNascimento;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
     }
 
     public String getCidade() {
@@ -203,10 +159,10 @@ public class Jogador {
     }
 
     public String getFotoJogador() {
-        return fotoJogador;
+        return urifoto;
     }
 
     public void setFotoJogador(String fotoJogador) {
-        this.fotoJogador = fotoJogador;
+        this.urifoto = fotoJogador;
     }
 }

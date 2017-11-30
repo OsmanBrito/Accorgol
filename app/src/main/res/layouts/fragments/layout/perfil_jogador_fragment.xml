@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="50sp">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:id="@+id/relativeLayout3"
@@ -19,56 +19,27 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:scaleType="centerCrop"
-            android:id="@+id/visualizarFotoDadosPessoais"
-            android:layout_width="121dp"
-            android:layout_height="138dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="80dp"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageButton
             android:id="@+id/addFotoPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="20dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginBottom="48dp"
+            android:layout_marginTop="45dp"
             android:background="@color/colorPrimary"
             android:src="@android:drawable/ic_menu_camera"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.805"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:textColor="#fff"
-            android:id="@+id/textView95"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Dados pessoais"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toBottomOf="@+id/relativeLayout3"
+            app:layout_constraintStart_toEndOf="@+id/visualizarFotoDadosPessoais"
+            app:layout_constraintTop_toBottomOf="@+id/textView95" />
 
         <TextView
             android:id="@+id/textView96"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="8dp"
             android:text="Nome: "
             android:textSize="15sp"
             app:layout_constraintEnd_toStartOf="@+id/visualizarNomeJogadorPerfil"
@@ -80,30 +51,34 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:id="@+id/visualizarNomeJogadorPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="Nome muito longo da Silva"
             android:textSize="15sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView96"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textView96" />
+            app:layout_constraintStart_toEndOf="@+id/textView96"
+            app:layout_constraintTop_toBottomOf="@+id/visualizarFotoDadosPessoais" />
 
         <TextView
             android:id="@+id/textView98"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="14dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
             android:text="Posição: "
             android:textSize="15sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/visualizarPosicaoJogadorPerfil"
             app:layout_constraintEnd_toStartOf="@+id/visualizarPosicaoJogadorPerfil"
             app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView96" />
 
         <TextView
             android:id="@+id/visualizarPosicaoJogadorPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="27dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="Posição do jogador"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -114,70 +89,198 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             android:id="@+id/textView100"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Pé dominante: "
             android:textSize="15sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/visualizarPeJogadorPerfil"
-            app:layout_constraintStart_toStartOf="@+id/textView98" />
+            app:layout_constraintStart_toStartOf="@+id/textView98"
+            app:layout_constraintTop_toBottomOf="@+id/textView98" />
 
         <TextView
             android:id="@+id/visualizarPeJogadorPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="Destro"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="@+id/textView102"
-            app:layout_constraintStart_toEndOf="@+id/textView102"
+            app:layout_constraintStart_toEndOf="@+id/textView100"
             app:layout_constraintTop_toBottomOf="@+id/visualizarPosicaoJogadorPerfil" />
 
         <TextView
             android:id="@+id/textView102"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="8dp"
             android:text="Ano de nascimento: "
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/textView100"
+            app:layout_constraintEnd_toStartOf="@+id/visualizarPosicaoJogadorPerfil"
+            app:layout_constraintStart_toStartOf="@+id/visualizarPosicaoJogadorPerfil"
             app:layout_constraintTop_toBottomOf="@+id/textView100" />
 
         <TextView
             android:id="@+id/visualizarAnoPerfilJogador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="17dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="1900"
             android:textSize="15sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView102"
-            app:layout_constraintStart_toEndOf="@+id/textView102" />
+            app:layout_constraintStart_toEndOf="@+id/textView102"
+            app:layout_constraintTop_toBottomOf="@+id/visualizarPeJogadorPerfil" />
 
         <TextView
             android:id="@+id/textView104"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="1dp"
+            android:layout_marginTop="8dp"
             android:text="RG: "
             android:textSize="15sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/visualizarRGPerfilJogador"
-            app:layout_constraintStart_toStartOf="@+id/textView102" />
+            app:layout_constraintStart_toStartOf="@+id/textView102"
+            app:layout_constraintTop_toBottomOf="@+id/textView102" />
 
         <TextView
             android:id="@+id/visualizarRGPerfilJogador"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="11dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:text="12345678-9"
             android:textSize="15sp"
             app:layout_constraintStart_toEndOf="@+id/textView104"
-            app:layout_constraintTop_toBottomOf="@+id/textView102" />
+            app:layout_constraintTop_toBottomOf="@+id/visualizarAnoPerfilJogador" />
+
+        <TextView
+            android:id="@+id/textView1024"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="Altura: "
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/textView104"
+            app:layout_constraintTop_toBottomOf="@+id/textView104" />
+
+        <TextView
+            android:id="@+id/visualizarAlturaJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="1,80"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/textView1024"
+            app:layout_constraintTop_toBottomOf="@+id/visualizarRGPerfilJogador" />
+
+        <TextView
+            android:id="@+id/textView10224"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:text="Estado: "
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/textView1024"
+            app:layout_constraintTop_toBottomOf="@+id/textView1024" />
+
+        <TextView
+            android:id="@+id/visualizarEstadoJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="RS"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/textView10224"
+            app:layout_constraintTop_toBottomOf="@+id/visualizarAlturaJogador" />
+
+        <TextView
+            android:id="@+id/textV2iew102224"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Estado: "
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/textView10224"
+            app:layout_constraintTop_toBottomOf="@+id/textView10224" />
+
+        <TextView
+            android:id="@+id/visualizarCidadeJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Santa maria"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/textV2iew102224"
+            app:layout_constraintTop_toBottomOf="@+id/visualizarEstadoJogador" />
+
+        <TextView
+            android:id="@+id/textV2224"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Celular: "
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/textV2iew102224"
+            app:layout_constraintTop_toBottomOf="@+id/textV2iew102224" />
+
+        <TextView
+            android:id="@+id/visualiarCelularJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="5599887744"
+            android:textSize="15sp"
+            app:layout_constraintStart_toEndOf="@+id/textV2224"
+            app:layout_constraintTop_toBottomOf="@+id/visualizarCidadeJogador" />
 
         <FrameLayout
             android:id="@+id/contentContainervideoJogador"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="36dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView104" />
+            app:layout_constraintTop_toBottomOf="@+id/visualiarCelularJogador" />
+
+        <TextView
+            android:id="@+id/textView95"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dados pessoais"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/relativeLayout3" />
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/editarPerfilJogador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="Editar"
+            app:bootstrapBrand="info"
+            app:bootstrapSize="sm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView95" />
+
+        <ImageView
+            android:id="@+id/visualizarFotoDadosPessoais"
+            android:layout_width="121dp"
+            android:layout_height="138dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addFotoPerfil" />
+
     </android.support.constraint.ConstraintLayout>
+
 </ScrollView>

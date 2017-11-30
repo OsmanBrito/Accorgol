@@ -44,9 +44,11 @@ public class FirebaseHelper implements Serializable{
                     if (root.equals("Empresarios")) {
                         empresario.setIdEmpresario(count);
                         mDatabase.child(root).child(String.valueOf(count)).setValue(empresario);
+                        new FirebaseHelper().armazenar(ctx, "Empresario", String.valueOf(R.string.tipo_user));
                     } else {
                         jogador.setIdJogador(String.valueOf(count));
                         mDatabase.child(root).child(String.valueOf(count)).setValue(jogador);
+                        new FirebaseHelper().armazenar(ctx, "Jogador", String.valueOf(R.string.tipo_user));
                         //aqui sera setado o id do usuario para poder colocar nas URLs do fireabse, pegando fotos e videos DO USUARIO
                     }
                 }

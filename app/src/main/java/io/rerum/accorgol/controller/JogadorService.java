@@ -10,8 +10,7 @@ import io.rerum.accorgol.model.Jogador;
 
 public class JogadorService {
 
-    public void cadastrarJogador(String nome, String email, String RG,String senha, String posicao, String anoNascimento, String peDominante, Context ctx){
-        Jogador jogador = new Jogador(email, senha, nome, RG,posicao, peDominante, anoNascimento);
+    public void cadastrarJogador(Jogador jogador, Context ctx){
         FirebaseHelper firebaseHelper = new FirebaseHelper();
         firebaseHelper.verifyIdInDataBase("Jogadores", ctx, null, jogador);
     }

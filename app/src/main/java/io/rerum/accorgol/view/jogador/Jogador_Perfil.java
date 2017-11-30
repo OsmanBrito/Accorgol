@@ -29,11 +29,6 @@ import io.rerum.accorgol.view.jogador.fragments.SemDadoCarreira;
 
 public class Jogador_Perfil extends AppCompatActivity{
 
-    private TextView nome;
-    private TextView rg;
-    private TextView dataNascimento;
-    private TextView posicao;
-    private TextView pedominante;
     private BottomBar bottomBar;
     private boolean flag = false;
 
@@ -41,11 +36,6 @@ public class Jogador_Perfil extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jogadorperfil);
-        nome = (TextView) findViewById(R.id.nomePerfilJogador);
-        rg = (TextView) findViewById(R.id.rgPerfilJogador);
-        dataNascimento = (TextView) findViewById(R.id.anoPerfiljogador);
-        posicao = (TextView) findViewById(R.id.posicaoPerfilJogador);
-        pedominante = (TextView) findViewById(R.id.pePerfilJogador);
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override

@@ -17,10 +17,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnPausedListener;
 import com.google.firebase.storage.OnProgressListener;
@@ -34,6 +40,7 @@ import java.io.InputStream;
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.dao.UsuarioDAO;
+import io.rerum.accorgol.view.jogador.EditPerfilJogador;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -50,11 +57,35 @@ public class JogadorPerfilFragment extends Fragment {
     private ProgressDialog progressDoalog;
     private DatabaseReference mDatabase;
 
+    private TextView nome;
+    private TextView rg;
+    private TextView dataNascimento;
+    private TextView posicao;
+    private TextView pedominante;
+    private TextView altura;
+    private TextView estado;
+    private TextView cidade;
+    private TextView celular;
+    private BootstrapButton botao;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.perfil_jogador_fragment, container, false);
         ctx = view.getContext();
         mStorage = FirebaseStorage.getInstance().getReference();
+
+        nome = (TextView) view.findViewById(R.id.visualizarNomeJogadorPerfil);
+        rg = (TextView) view.findViewById(R.id.visualizarRGPerfilJogador);
+        dataNascimento = (TextView) view.findViewById(R.id.visualizarAnoPerfilJogador);
+        posicao = (TextView) view.findViewById(R.id.visualizarPosicaoJogadorPerfil);
+        pedominante = (TextView) view.findViewById(R.id.visualizarPeJogadorPerfil);
+        altura = (TextView) view.findViewById(R.id.visualizarAlturaJogador);
+        estado = (TextView) view.findViewById(R.id.visualizarEstadoJogador);
+        cidade = (TextView) view.findViewById(R.id.visualizarCidadeJogador);
+        celular = (TextView) view.findViewById(R.id.visualiarCelularJogador);
+        botao = (BootstrapButton) view.findViewById(R.id.editarPerfilJogador);
+        buscarPerfilJogador();
+
         SemVideoFragment semVideoFragment = new SemVideoFragment();
         ComVideoFragment comVideoFragment = new ComVideoFragment();
         android.app.FragmentManager manager = getFragmentManager();
@@ -63,6 +94,7 @@ public class JogadorPerfilFragment extends Fragment {
         } else {
             manager.beginTransaction().replace(R.id.contentContainervideoJogador, semVideoFragment, semVideoFragment.getTag()).commit();
         }
+
         fotoButton = (ImageButton) view.findViewById(R.id.addFotoPerfil);
         fotoPerfil = (ImageView) view.findViewById(R.id.visualizarFotoDadosPessoais);
         fotoButton.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +119,14 @@ public class JogadorPerfilFragment extends Fragment {
                         .setIcon(R.mipmap.ic_launcher)
                         .setNegativeButton("Cancel", null)
                         .show();
+            }
+        });
+
+        botao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ctx, EditPerfilJogador.class);
+                startActivity(intent);
             }
         });
         return view;
@@ -146,6 +186,32 @@ public class JogadorPerfilFragment extends Fragment {
                 }
             });
         }
+    }
+
+    public void buscarPerfilJogador(){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("/Jogadores/"+new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario)));
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.e("COEEEE", "buscar empresario Ondatachange");
+                nome.setText(dataSnapshot.child("nomeCompleto").getValue(String.class));
+                posicao.setText(dataSnapshot.child("posicao").getValue(String.class));
+                pedominante.setText(dataSnapshot.child("peDominante").getValue(String.class));
+                altura.setText(dataSnapshot.child("altura").getValue(String.class));
+                rg.setText(dataSnapshot.child("rg").getValue(String.class));
+                dataNascimento.setText(dataSnapshot.child("anoNascimento").getValue(String.class));
+                cidade.setText(dataSnapshot.child("cidade").getValue(String.class));
+                estado.setText(dataSnapshot.child("estado").getValue(String.class));
+                celular.setText(dataSnapshot.child("celular").getValue(String.class));
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void dispatchTakeVideoIntent() {

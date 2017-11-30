@@ -20,7 +20,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import io.rerum.accorgol.R;
+import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.dao.UsuarioDAO;
+import io.rerum.accorgol.model.Empresario;
+import io.rerum.accorgol.model.Jogador;
 import io.rerum.accorgol.view.empresario.EmpresarioHome;
 import io.rerum.accorgol.view.jogador.Jogador_Perfil;
 
@@ -54,12 +57,13 @@ public class FirebaseCreate extends AppCompatActivity{
     public void onStart() {
         mDatabase = FirebaseDatabase.getInstance().getReference();
         UsuarioDAO usuarioDAO = new UsuarioDAO(this);
-        if(usuarioDAO.getIDBanco()  !=  0){
+        if(new FirebaseHelper().recuperar(this, String.valueOf(R.string.tipo_user)).equals("Jogador")) {
             Log.e("COEEEE", "TEM CADSATRO");
 //            aqui sera setado o id do usuario para poder colocar nas URLs do fireabse, pegando fotos e videos DO USUARIO
-            Intent intent = new Intent(this, EmpresarioHome .class);
+            Intent intent = new Intent(this, Jogador_Perfil.class);
             startActivity(intent);
         } else {
+            Intent intent = new Intent(this, Empresario.class);
             Log.e("COEEEE", "Nao tem cadastro!!");
         }
 //        UsuarioDAO usuarioDAO = new UsuarioDAO(this);
