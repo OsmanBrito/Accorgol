@@ -89,8 +89,7 @@ public class ResultadoBuscaDeTalentos extends AppCompatActivity {
                         }
                         Toast.makeText(ctx, "Fmz meu!!!", Toast.LENGTH_SHORT).show();
                         i++;
-                        //TODO ARRUMAR PARA SER SO STRING DEPOIS!!!!!
-                        j.setIdJogador(String.valueOf(postSnapshot.child("idJogador").getValue(Long.class)));
+                        j.setIdJogador(String.valueOf(postSnapshot.child("idJogador").getValue(String.class)));
                         data.add(j);
                     }
                 }

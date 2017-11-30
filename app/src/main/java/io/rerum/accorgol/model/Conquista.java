@@ -6,6 +6,7 @@ package io.rerum.accorgol.model;
 
 public class Conquista {
 
+    private String idConquista;
     private String nomeConquista;
     private String nomeClube;
     private String ano;
@@ -20,6 +21,14 @@ public class Conquista {
     }
 
     public Conquista() {
+    }
+
+    public String getIdConquista() {
+        return idConquista;
+    }
+
+    public void setIdConquista(String idConquista) {
+        this.idConquista = idConquista;
     }
 
     public String getURIFoto() {

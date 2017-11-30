@@ -63,8 +63,14 @@ public class ComConquistaFragment extends Fragment {
                     conquista.setNomeConquista(postSnapshot.child("nomeConquista").getValue(String.class));
                     conquista.setURIFoto(postSnapshot.child("urifoto").getValue(String.class));
                     Log.d("USUARIOOOO", conquista.getNomeClube());
-
-                    data.add(conquista);
+                    conquista.setIdConquista(postSnapshot.child("idConquista").getValue(String.class));
+                    if (postSnapshot.child("idConquista").getValue(String.class) == null) {
+                        android.app.FragmentManager manager = getFragmentManager();
+                        SemConquistaFragment vj = new SemConquistaFragment();
+                        manager.beginTransaction().replace(R.id.contentConquistasJogador, vj, vj.getTag()).commit();
+                    } else {
+                        data.add(conquista);
+                    }
                 }
                 adapter = new CustomAdapter(data);
                 recyclerView.setAdapter(adapter);

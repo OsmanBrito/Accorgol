@@ -33,6 +33,7 @@ public class ConquistaService {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (count == 0) {
                     count = (int) dataSnapshot.getChildrenCount() + 1;
+                    conquista.setIdConquista(String.valueOf(count));
                     new FirebaseHelper().armazenar(ctx, "Tem", String.valueOf(R.string.tem_conquista));
                     mDatabase.child(root).child(""+String.valueOf(count)).setValue(conquista);
                 }

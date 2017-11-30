@@ -1,6 +1,8 @@
 package io.rerum.accorgol.view.jogador.fragments;
 
 import android.app.Fragment;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +37,8 @@ public class VisualizarPerfilDadosPessoaisFragment extends Fragment {
     private TextView pe;
     private TextView ano;
     private TextView rg;
+    private BootstrapButton notificar;
+    private String celular;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +63,7 @@ public class VisualizarPerfilDadosPessoaisFragment extends Fragment {
                 pe.setText(dataSnapshot.child("peDominante").getValue(String.class));
                 ano.setText(dataSnapshot.child("anoNascimento").getValue(String.class));
                 rg.setText(dataSnapshot.child("rg").getValue(String.class));
+                celular = dataSnapshot.child("celular").getValue(String.class);
 
                 if (dataSnapshot.child("urifoto").getValue(String.class) != null){
                     Picasso.with(view.getContext()).load(dataSnapshot.child("urifoto").getValue(String.class)).into(foto);
@@ -69,6 +75,16 @@ public class VisualizarPerfilDadosPessoaisFragment extends Fragment {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+
+        notificar = (BootstrapButton) view.findViewById(R.id.notificarJogador);
+        notificar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:"+celular));
+                startActivity(callIntent);
             }
         });
 

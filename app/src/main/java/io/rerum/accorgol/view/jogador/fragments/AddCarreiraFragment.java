@@ -81,13 +81,14 @@ public class AddCarreiraFragment extends Fragment {
                 int partidas = Integer.parseInt(qndtPartidasNoClube.getText().toString());
                 int gols = Integer.parseInt(qntdGols.getText().toString());
                 int assistencias = Integer.parseInt(qntdAssistencias.getText().toString());
-                int  sofridos = Integer.parseInt(golSofridos.getText().toString());
                 String id = new FirebaseHelper().recuperar(view.getContext(), String.valueOf(R.string.id_Usuario));
                 //se o jogador for goleiro ou zagueiro e esta atuando no clube em questão é instanciado o construtor dele.
                 if (posicao.equals("Goleiro") || posicao.equals("Zagueiro") && clubeAtual.isChecked()) {
+                    int  sofridos = Integer.parseInt(golSofridos.getText().toString());
                     Carreira carreira = new Carreira(nome, de, true, posicao, partidas, gols, assistencias, sofridos);
                     new CarreiraService().addCarreira(carreira, "Jogadores/" + id + "/Carreira/", view.getContext());
                 } else if (posicao.equals("Goleiro") || posicao.equals("Zagueiro") && !clubeAtual.isChecked()) {
+                    int  sofridos = Integer.parseInt(golSofridos.getText().toString());
                     Carreira carreira = new Carreira(nome, de, ate, posicao, partidas, gols, assistencias, sofridos);
                     new CarreiraService().addCarreira(carreira, "Jogadores/" + id + "/Carreira/", view.getContext());
                 } else {

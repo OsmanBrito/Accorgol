@@ -111,6 +111,7 @@ public class AddConquistaFragment extends Fragment {
                         System.out.println("Upload is " + progress + "% done");
                         progressDoalog.setProgress((int) progress);
                         progressDoalog.setCancelable(false);
+
                         if (progress == 100) {
                             FirebaseHelper firebaseHelper = new FirebaseHelper();
                             Uri testeUri = taskSnapshot.getMetadata().getDownloadUrl();
@@ -121,9 +122,11 @@ public class AddConquistaFragment extends Fragment {
                                     anoConquista.getText().toString(),
                                     new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.foto_conquista)),
                                     nomeClubeConquista.getText().toString());
+
                             ConquistaService conquistaService = new ConquistaService();
                             String id = new FirebaseHelper().recuperar(ctx, String.valueOf(R.string.id_Usuario));
                             conquistaService.addConquista(conquista, "Jogadores/"+ id + "/Conquistas", ctx);
+
                             android.app.FragmentManager manager = getFragmentManager();
                             ComConquistaFragment cc = new ComConquistaFragment();
                             manager.beginTransaction().replace(R.id.contentContainer, cc, cc.getTag()).commit();

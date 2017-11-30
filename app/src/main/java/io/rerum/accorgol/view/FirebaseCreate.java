@@ -63,7 +63,7 @@ public class FirebaseCreate extends AppCompatActivity{
             Intent intent = new Intent(this, Jogador_Perfil.class);
             startActivity(intent);
         } else {
-            Intent intent = new Intent(this, Empresario.class);
+            Intent intent = new Intent(this, EmpresarioHome.class);
             Log.e("COEEEE", "Nao tem cadastro!!");
         }
 //        UsuarioDAO usuarioDAO = new UsuarioDAO(this);

@@ -106,6 +106,7 @@ public class OportunidadeAdapter extends RecyclerView.Adapter<OportunidadeAdapte
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 final DatabaseReference myRef = database.getReference("/Empresarios/"+new FirebaseHelper().recuperar(view.getContext(), String.valueOf(R.string.id_Usuario)) + "/Oportunidades/"+id);
                 //removo pelo id da oportunidade
+                Log.e("USUARIOOO VER O ID = ", String.valueOf(myRef));
                 myRef.setValue(null);
                 new FirebaseHelper().armazenar(ctx, "", String.valueOf(R.string.tem_oportunidade));
 
