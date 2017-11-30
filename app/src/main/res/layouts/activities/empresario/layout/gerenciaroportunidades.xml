@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent" android:background="@color/colorPrimary"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -22,213 +22,17 @@
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="48dp"
         android:text="Oportunidades"
-        android:textColor="#fff"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="326dp"
-        android:layout_height="164dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="152dp"
-        android:background="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <TextView
-            android:id="@+id/textView312223"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView32"
-            android:layout_marginStart="31dp"
-            android:layout_marginTop="18dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView33232222"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView32"
-            android:layout_below="@+id/textView342323232"
-            android:layout_marginTop="25dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView342323232"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="13dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView37"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="13dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView36"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView32"
-            android:layout_alignBottom="@+id/textView32"
-            android:layout_alignStart="@+id/textView35"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView35"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView33232222"
-            android:layout_alignBottom="@+id/textView33232222"
-            android:layout_marginStart="37dp"
-            android:layout_toEndOf="@+id/textView342323232"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView312223"
-            android:layout_below="@+id/textView33232222"
-            android:layout_marginTop="18dp"
-            android:text="TextView" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/textView33232222"
-            android:layout_toStartOf="@+id/textView33232222"
-            app:srcCompat="@android:drawable/ic_delete" />
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-    </RelativeLayout>
-
-
-    <RelativeLayout
-        android:layout_width="327dp"
-        android:layout_height="164dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="#fff"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975">
-
-        <TextView
-            android:id="@+id/textView312223"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/textView32"
-            android:layout_marginStart="31dp"
-            android:layout_marginTop="18dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView33232222"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView32"
-            android:layout_below="@+id/textView342323232"
-            android:layout_marginTop="25dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView342323232"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="13dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView37"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="13dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView36"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView32"
-            android:layout_alignBottom="@+id/textView32"
-            android:layout_alignStart="@+id/textView35"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView35"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView33232222"
-            android:layout_alignBottom="@+id/textView33232222"
-            android:layout_marginStart="37dp"
-            android:layout_toEndOf="@+id/textView342323232"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/textView32"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textView312223"
-            android:layout_below="@+id/textView33232222"
-            android:layout_marginTop="18dp"
-            android:text="TextView" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            app:srcCompat="@android:drawable/ic_delete" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/textView342323232"
-            android:layout_alignParentEnd="true"
-            app:srcCompat="@android:drawable/ic_menu_edit" />
-    </RelativeLayout>
 
     <ImageView
         android:onClick="addOportunidade"

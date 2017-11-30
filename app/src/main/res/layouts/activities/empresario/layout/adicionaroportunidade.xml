@@ -1,151 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent" android:background="@color/colorPrimary"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="81dp">
 
-    <TextView
-        android:onClick="voltarTela"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Voltar"
-        android:textColor="#1c37ff"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="166dp"
-        android:layout_height="18dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:onClick="voltarTela"
+            android:text="Voltar"
+            android:textColor="#1c37ff"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="166dp"
-        android:layout_height="18dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        <Spinner
+            android:id="@+id/addOportunidadePosicao"
+            android:layout_width="0dp"
+            android:layout_height="53dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/posicao"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView29"></Spinner>
 
-    <TextView
-        android:id="@+id/textView41"
+        <Spinner
+            android:id="@+id/addOportunidadePe"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/pe"
+            app:layout_constraintEnd_toStartOf="@+id/addOportunidadeAltura"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addOportunidadePosicao"></Spinner>
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toStartOf="@+id/editText5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        <Spinner
+            android:id="@+id/addOportunidadeAltura"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="19dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/altura"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addOportunidadePe"
+            app:layout_constraintTop_toBottomOf="@+id/addOportunidadePosicao"></Spinner>
 
-    <TextView
-        android:id="@+id/textView40"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toStartOf="@+id/editText4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/addOportunidadeAnoInput"
+            android:layout_width="288dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/addOportunidadeCidadeInput"
+            app:layout_constraintStart_toStartOf="@+id/addOportunidadeCidadeInput"
+            app:layout_constraintTop_toBottomOf="@+id/addOportunidadeAltura">
 
-    <TextView
-        android:id="@+id/textView29"
-        android:layout_width="295dp"
-        android:layout_height="78dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="52dp"
-        android:gravity="center"
-        android:text="Adicionar nova oportunidade"
-        android:textColor="#fff"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/addOportunidadeAno"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Ano de Nascimento" />
+        </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/textView38"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="TextView"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toStartOf="@+id/editText2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView39" />
+        <Spinner
+            android:id="@+id/addOportunidadeEstado"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:entries="@array/estadosBR"
+            app:layout_constraintEnd_toStartOf="@+id/addOportunidadeCidadeInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addOportunidadeAnoInput"></Spinner>
 
-    <TextView
-        android:id="@+id/textView39"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
-        android:text="TextView"
-        android:textColor="#fff"
-        app:layout_constraintEnd_toStartOf="@+id/editText3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/addOportunidadeCidadeInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addOportunidadeEstado"
+            app:layout_constraintTop_toBottomOf="@+id/addOportunidadeAnoInput">
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="166dp"
-        android:layout_height="18dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+            <EditText
+                android:id="@+id/addOportunidadeCidade"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Cidade" />
+        </android.support.design.widget.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="166dp"
-        android:layout_height="18dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="Adicionar nova oportunidade"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="320dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="88dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:text="Adicionar"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/addOportunidadeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_margin="10dp"
+            android:text="Adicionar"
+            android:textStyle="bold"
+            app:bootstrapBrand="primary"
+            app:bootstrapSize="xl"
+            app:layout_constraintEnd_toStartOf="@+id/addOportunidadeCidadeInput"
+            app:layout_constraintStart_toStartOf="@+id/addOportunidadeCidadeInput"
+            app:layout_constraintTop_toBottomOf="@+id/addOportunidadeCidadeInput" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</ScrollView>

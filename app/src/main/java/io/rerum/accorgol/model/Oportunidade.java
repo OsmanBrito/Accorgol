@@ -6,20 +6,20 @@ package io.rerum.accorgol.model;
 
 public class Oportunidade {
 
-    private int idOportunidade;
     private String posicao;
     private String peDominante;
-    private double alturaMin;
-    private int anoNascimento;
+    private String alturaMin;
+    private String anoNascimento;
     private String cidade;
     private String estado;
 
-    public int getIdOportunidade() {
-        return idOportunidade;
-    }
-
-    public void setIdOportunidade(int idOportunidade) {
-        this.idOportunidade = idOportunidade;
+    public Oportunidade(String posicao, String altura, String ano, String cidade, String pe, String estado) {
+        this.posicao = posicao;
+        this.alturaMin = altura;
+        this.anoNascimento = ano;
+        this.cidade = cidade;
+        this.peDominante = pe;
+        this.estado = estado;
     }
 
     public String getPosicao() {
@@ -38,19 +38,19 @@ public class Oportunidade {
         this.peDominante = peDominante;
     }
 
-    public double getAlturaMin() {
+    public String getAlturaMin() {
         return alturaMin;
     }
 
-    public void setAlturaMin(double alturaMin) {
+    public void setAlturaMin(String alturaMin) {
         this.alturaMin = alturaMin;
     }
 
-    public int getAnoNascimento() {
+    public String getAnoNascimento() {
         return anoNascimento;
     }
 
-    public void setAnoNascimento(int anoNascimento) {
+    public void setAnoNascimento(String anoNascimento) {
         this.anoNascimento = anoNascimento;
     }
 

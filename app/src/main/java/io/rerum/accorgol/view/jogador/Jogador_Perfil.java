@@ -16,6 +16,7 @@ import com.roughike.bottombar.OnTabSelectListener;
 import io.rerum.accorgol.R;
 import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.view.VisualizarPerfilJogador;
+import io.rerum.accorgol.view.empresario.AddOportunidade;
 import io.rerum.accorgol.view.jogador.fragments.ComCarreiraFragment;
 import io.rerum.accorgol.view.jogador.fragments.ComConquistaFragment;
 import io.rerum.accorgol.view.jogador.fragments.JogadorPerfilFragment;
@@ -91,10 +92,16 @@ public class Jogador_Perfil extends AppCompatActivity{
         super.onOptionsItemSelected(item);
         if (item.getItemId() == R.id.add_item) {
             //check if any items to add
-            Intent intent = new Intent(this, VisualizarPerfilJogador.class);
-            String id = new FirebaseHelper().recuperar(this, String.valueOf(R.string.id_Usuario));
-            new FirebaseHelper().armazenar(this, id, String.valueOf(R.string.id_jogador_que_sera_visualizado));
-            startActivity(intent);
+            if (String.valueOf(R.string.id_jogador_que_sera_visualizado).equals("")) {
+                Intent intent = new Intent(this, AddOportunidade.class);
+                startActivity(intent);
+            } else {
+                Intent intent = new Intent(this, VisualizarPerfilJogador.class);
+                String id = new FirebaseHelper().recuperar(this, String.valueOf(R.string.id_Usuario));
+                new FirebaseHelper().armazenar(this, id, String.valueOf(R.string.id_jogador_que_sera_visualizado));
+                startActivity(intent);
+            }
+
         }
         return true;
     }
