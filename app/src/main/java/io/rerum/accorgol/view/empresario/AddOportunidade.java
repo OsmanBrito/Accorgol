@@ -13,6 +13,9 @@ import io.rerum.accorgol.controller.CarreiraService;
 import io.rerum.accorgol.controller.FirebaseHelper;
 import io.rerum.accorgol.controller.OportunidadeService;
 import io.rerum.accorgol.model.Oportunidade;
+import io.rerum.accorgol.view.empresario.fragments.ComOportunidadeFragment;
+import io.rerum.accorgol.view.empresario.fragments.SemOportunidadeFragment;
+import io.rerum.accorgol.view.jogador.fragments.ComConquistaFragment;
 
 /**
  * Created by osman on 31/10/2017.

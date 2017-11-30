@@ -33,7 +33,9 @@ public class OportunidadeService {
                 if (count == 0) {
                     count = (int) dataSnapshot.getChildrenCount() + 1;
                     new FirebaseHelper().armazenar(ctx, "Tem", String.valueOf(R.string.tem_carreira));
+                    oportunidade.setIdOportunidade(String.valueOf(count));
                     mDatabase.child(root).child(""+String.valueOf(count)).setValue(oportunidade);
+                    new FirebaseHelper().armazenar(ctx, "Tem", String.valueOf(R.string.tem_oportunidade));
                 }
             }
             @Override

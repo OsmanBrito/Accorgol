@@ -49,16 +49,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addOportunidadePosicao"></Spinner>
 
+        <TextView
+            android:id="@+id/textView39"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Altura Mínima"
+            app:layout_constraintTop_toBottomOf="@+id/addOportunidadePosicao"
+            tools:layout_editor_absoluteX="183dp" />
+
         <Spinner
             android:id="@+id/addOportunidadeAltura"
             android:layout_width="0dp"
-            android:layout_height="55dp"
+            android:layout_height="36dp"
             android:layout_marginEnd="19dp"
-            android:layout_marginTop="8dp"
             android:entries="@array/altura"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/addOportunidadePe"
-            app:layout_constraintTop_toBottomOf="@+id/addOportunidadePosicao"></Spinner>
+            app:layout_constraintTop_toBottomOf="@+id/textView39"></Spinner>
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/addOportunidadeAnoInput"
@@ -72,6 +79,7 @@
             <EditText
                 android:id="@+id/addOportunidadeAno"
                 android:layout_width="match_parent"
+                android:inputType="numberDecimal"
                 android:layout_height="match_parent"
                 android:hint="Ano de Nascimento" />
         </android.support.design.widget.TextInputLayout>
@@ -108,7 +116,7 @@
         <TextView
             android:id="@+id/textView29"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="29dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:gravity="center"
@@ -122,8 +130,8 @@
             android:id="@+id/addOportunidadeButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_margin="10dp"
+            android:layout_marginTop="8dp"
             android:text="Adicionar"
             android:textStyle="bold"
             app:bootstrapBrand="primary"
